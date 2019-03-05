@@ -14,7 +14,6 @@ import { ReviewsComponent } from './content/reviews/reviews.component';
 import { PartnersComponent } from './content/partners/partners.component';
 import { FormComponent } from './content/form/form.component';
 import { ImagesComponent } from './content/images/images.component';
-import { from } from 'rxjs';
 import { DevelopmentComponent } from './content/services/development/development.component';
 import { AnaliticsComponent } from './content/services/analitics/analitics.component';
 import { TechnologiesComponent } from './content/services/technologies/technologies.component';
