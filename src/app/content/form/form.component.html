@@ -1,0 +1,62 @@
+<div class="container">
+  <h2 class="text-center">Начните сотрудничество с POULAILLER</h2>
+  <p class="text-center"> Оставьте заявку и наши менеджеры свяжутся с вами</p>
+  <div class="row justify-content-center align-items-center">
+    <form [formGroup]="angForm" role="form" class="form-group">
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <label class=" control-label" for="input-name">ИМЯ: <span>*</span></label>
+          <input formControlName="person_name" class="form-control input-name" type="text" #person_name>
+        </div>
+        <div
+          *ngIf="angForm.controls['person_name'].invalid && (angForm.controls['person_name'].dirty || angForm.controls['person_name'].touched)"
+          class="alert alert-danger">
+          <div *ngIf="angForm.controls['person_name'].errors.required">
+            Заполните данное поле!
+          </div>
+        </div>
+        <div class="form-group col-md-4">
+          <label class=" control-label" for="input-email">EMAIL:<span>*</span></label>
+          <input formControlName="email" class="form-control input-email" type="email" #email>
+        </div>
+        <div
+          *ngIf="angForm.controls['email'].invalid && (angForm.controls['email'].dirty || angForm.controls['email'].touched)"
+          class="alert alert-danger">
+          <div *ngIf="angForm.controls['email'].errors.required">
+            Заполните данное поле!
+          </div>
+        </div>
+        <div class="form-group col-md-4">
+          <label class="control-label" for="input-tel">ТЕЛЕФОН: <span>*</span></label>
+          <input formControlName="number" class="form-control input-tel" type="tel" #number>
+        </div>
+        <div
+          *ngIf="angForm.controls['number'].invalid && (angForm.controls['number'].dirty || angForm.controls['number'].touched)"
+          class="alert alert-danger">
+          <div *ngIf="angForm.controls['number'].errors.required">
+            Заполните данное поле!
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="input-textarea">ОПИСАНИЕ: <span>*</span></label>
+        <input formControlName="order" class="form-control input-textarea" type="textarea" #order>
+      </div>
+      <div
+        *ngIf="angForm.controls['order'].invalid && (angForm.controls['order'].dirty || angForm.controls['order'].touched)"
+        class="alert alert-danger">
+        <div *ngIf="angForm.controls['order'].errors.required">
+          Заполните данное поле!
+        </div>
+      </div>
+      <br>
+      <div class="form-group justify-content-center align-items-center text-center">
+        <button (click)="addOrder(person_name.value, email.value, number.value, order.value)" class="btn btn-primary">
+          Отправить заявку
+        </button> </div>
+
+    </form>
+  </div>
+</div>
+
+<hr>
