@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import{ ReactiveFormsModule} from '@angular/forms';
 import{ HttpClientModule} from '@angular/common/http'
 import{ OrderService } from './order.service';
+import {RouterModule} from '@angular/router'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,7 +18,13 @@ import { ImagesComponent } from './content/images/images.component';
 import { DevelopmentComponent } from './content/services/development/development.component';
 import { AnaliticsComponent } from './content/services/analitics/analitics.component';
 import { TechnologiesComponent } from './content/services/technologies/technologies.component';
+import { AutorizationComponent } from './autorization/autorization.component';
+import { ContactsComponent } from './content/contacts/contacts.component';
 
+const routes = [
+  {path: '', component: ContentComponent},
+  {path: 'authorization', component:  AutorizationComponent}
+]
 
 @NgModule({
   declarations: [
@@ -33,13 +40,16 @@ import { TechnologiesComponent } from './content/services/technologies/technolog
     DevelopmentComponent,
     AnaliticsComponent,
     TechnologiesComponent,
+    AutorizationComponent,
+    ContactsComponent
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule, 
+    RouterModule.forRoot(routes)
   ],
   providers: [OrderService],
   bootstrap: [AppComponent]

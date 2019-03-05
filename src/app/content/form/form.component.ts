@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import {OrderService} from 'C:/Users/anast/my-app/src/app/order.service'
+import {OrderService} from 'src/app/order.service'
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
