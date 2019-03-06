@@ -13,15 +13,17 @@ export class GetdataComponent implements OnInit {
   constructor(private os: OrderService) { }
 
   deleteOrder(id) {
+    console.log(id);
     this.os.deleteOrder(id).subscribe(res => {
+      console.log(id);
       console.log('Deleted');
     });
   }
 
   ngOnInit() {
     this.os.getOrder().subscribe((data: Order[])=>{
+      console.log(data);
       this.orders=data;
-      console.log(this.orders);
     });
     
   }

@@ -17,7 +17,7 @@
             <td>{{ order.number }}</td>
             <td>{{ order.order }}</td>
 <!--   <td><a [routerLink]="['/edit', business._id]" class="btn btn-primary">Edit</a></td> -->
-            <td><a [routerLink]="" class="btn btn-danger">Delete</a></td> 
+            <td><a (click) = "deleteOrder(order.id)" class="btn btn-danger">Delete</a></td>
         </tr>
     </tbody>
   </table>
