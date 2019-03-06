@@ -21,6 +21,7 @@ export class GetdataComponent implements OnInit {
   ngOnInit() {
     this.os.getOrder().subscribe((data: Order[])=>{
       this.orders=data;
+      console.log(this.orders);
     });
     
   }
