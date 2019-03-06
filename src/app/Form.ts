@@ -3,4 +3,5 @@ export default class form {
     email: String;
     number: String;
     order: String;
+    id: String;
   }

@@ -13,7 +13,7 @@ export class OrderService {
   deleteOrder(id) {
     return this
               .http
-              .get(`${this.uri}/delete/${id}`);
+              .delete(`${this.uri}/delete/${id}`);
   }
 
   getOrder() {
