@@ -10,6 +10,14 @@ export class OrderService {
 
   constructor(private http: HttpClient) { }
 
+  
+  getOrder() {
+    return this
+           .http
+           .get(`${this.uri}`);
+  };
+
+  
   addOrder(person_name, email, number, order) {
     const obj = {
       person_name: person_name,
@@ -21,13 +29,10 @@ export class OrderService {
 
     console.log(obj);
 
-// headers.append('Access-Control-Allow-Origin', 'http://localhost:3000');
 
     this.http.post(`${this.uri}/add`, obj)
       .subscribe(res =>{console.log('Done');});
-      
-//       fetch( '/skill', { method: 'POST', headers: { 'Content-Type': 'application/json' }, 
-// body: JSON.stringify(obj) }).then(result => result.json().then(console.log));
+
 
     console.log(obj);
   }

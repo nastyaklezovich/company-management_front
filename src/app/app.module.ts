@@ -20,10 +20,12 @@ import { AnaliticsComponent } from './content/services/analitics/analitics.compo
 import { TechnologiesComponent } from './content/services/technologies/technologies.component';
 import { AutorizationComponent } from './autorization/autorization.component';
 import { ContactsComponent } from './content/contacts/contacts.component';
+import { GetdataComponent } from './getdata/getdata.component';
 
 const routes = [
   {path: '', component: ContentComponent},
-  {path: 'authorization', component:  AutorizationComponent}
+  {path: 'authorization', component:  AutorizationComponent},
+  {path: 'table', component: GetdataComponent}
 ]
 
 @NgModule({
@@ -41,7 +43,8 @@ const routes = [
     AnaliticsComponent,
     TechnologiesComponent,
     AutorizationComponent,
-    ContactsComponent
+    ContactsComponent,
+    GetdataComponent
 
   ],
   imports: [
