@@ -20,6 +20,7 @@ export class GetdataComponent implements OnInit {
 
   ngOnInit() {
     this.os.getOrder().subscribe((data: Order[])=>{
+      console.log(data)
       this.order=data;
     });
     
