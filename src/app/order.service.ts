@@ -19,7 +19,7 @@ export class OrderService {
   getOrder() {
     return this
            .http
-           .get(`${this.uri}`);
+           .get(`${this.uri}/get`);
   };
 
   
