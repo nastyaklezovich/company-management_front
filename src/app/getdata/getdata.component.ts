@@ -8,7 +8,7 @@ import Order from '../Form'
 })
 export class GetdataComponent implements OnInit {
 
-  order: Order[];
+  orders: Order[];
 
   constructor(private os: OrderService) { }
 
@@ -20,7 +20,7 @@ export class GetdataComponent implements OnInit {
 
   ngOnInit() {
     this.os.getOrder().subscribe((data: Order[])=>{
-      this.order=data;
+      this.orders=data;
     });
     
   }
