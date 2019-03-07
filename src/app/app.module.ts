@@ -21,6 +21,7 @@ import { TechnologiesComponent } from './content/services/technologies/technolog
 import { AutorizationComponent } from './autorization/autorization.component';
 import { ContactsComponent } from './content/contacts/contacts.component';
 import { GetdataComponent } from './getdata/getdata.component';
+import { EditdataComponent } from './getdata/editdata/editdata.component';
 
 const routes = [
   {path: '', component: ContentComponent},
@@ -44,7 +45,8 @@ const routes = [
     TechnologiesComponent,
     AutorizationComponent,
     ContactsComponent,
-    GetdataComponent
+    GetdataComponent,
+    EditdataComponent
 
   ],
   imports: [
