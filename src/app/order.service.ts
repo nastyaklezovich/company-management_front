@@ -36,7 +36,7 @@ export class OrderService {
     };
     this
       .http
-      .post(`${this.uri}/update/${id}`, obj)
+      .put(`${this.uri}/update/${id}`, obj)
       .subscribe(res => console.log('Done'));
   }
 
