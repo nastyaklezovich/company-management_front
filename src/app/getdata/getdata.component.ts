@@ -12,8 +12,14 @@ export class GetdataComponent implements OnInit {
 
   constructor(private os: OrderService) { }
 
+  editOrder(id) {
+    this.os.editOrder(id).subscribe(res => {
+      console.log(id);
+      console.log('Edited');
+    });
+  }
+
   deleteOrder(id) {
-    console.log(id);
     this.os.deleteOrder(id).subscribe(res => {
       console.log(id);
       console.log('Deleted');
