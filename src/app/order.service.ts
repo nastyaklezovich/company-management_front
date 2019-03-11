@@ -34,6 +34,7 @@ export class OrderService {
       number: number,
       order: order
     };
+    
     this
       .http
       .put(`${this.uri}/update/${id}`, obj)
