@@ -9,14 +9,14 @@
         <td colspan="2">Actions</td>
     </tr>
     </thead>
-  
+
     <tbody>
         <tr *ngFor="let order of orders">
             <td>{{ order.person_name }}</td>
             <td>{{ order.email }}</td>
             <td>{{ order.number }}</td>
             <td>{{ order.order }}</td>
-            <td><a [routerLink]="['/edit', order.id]" class="btn btn-primary">Edit</a></td>
+            <td><a [routerLink]="['/editOrder', order.id]" class="btn btn-primary">Edit</a></td>
             <td><a (click) = "deleteOrder(order.id)" class="btn btn-danger">Delete</a></td>
         </tr>
     </tbody>
