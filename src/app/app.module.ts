@@ -26,7 +26,8 @@ import { EditdataComponent } from './getdata/editdata/editdata.component';
 const routes = [
   {path: '', component: ContentComponent},
   {path: 'authorization', component:  AutorizationComponent},
-  {path: 'table', component: GetdataComponent}
+  {path: 'table', component: GetdataComponent},
+  {path: 'edit', component: EditdataComponent}
 ]
 
 @NgModule({
