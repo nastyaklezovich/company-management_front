@@ -40,6 +40,8 @@ export class EditdataComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.os.editOrder(params['id']).subscribe(res => {
+        console.log("oooo- aaaaaa");
+        console.log(res);
         this.order = res;
       });
     });

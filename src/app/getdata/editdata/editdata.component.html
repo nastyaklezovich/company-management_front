@@ -6,6 +6,7 @@
           <label class="col-md-4">Person Name</label>
           <input type="text" class="form-control" formControlName="person_name" #person_name
             [(ngModel)]="order.person_name" />
+          <p>{{order.person_name}}</p>
         </div>
         <div
           *ngIf="angForm.controls['person_name'].invalid && (angForm.controls['person_name'].dirty || angForm.controls['person_name'].touched)"

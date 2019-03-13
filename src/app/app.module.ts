@@ -27,7 +27,7 @@ const routes = [
   {path: '', component: ContentComponent},
   {path: 'authorization', component:  AutorizationComponent},
   {path: 'table', component: GetdataComponent},
-  {path: 'edit', component: EditdataComponent}
+  {path: 'edit/:id', component: EditdataComponent}
 ]
 
 @NgModule({

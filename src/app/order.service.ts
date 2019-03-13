@@ -24,7 +24,7 @@ export class OrderService {
   };
 
   editOrder(id) {
-    return this.http.get(`${this.uri}/edit/${id}`)
+    return this.http.get(`${this.uri}/get/${id}`);
   }
 
   updateOrder(person_name, email, number, order, id) {
