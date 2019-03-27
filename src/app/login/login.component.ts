@@ -13,6 +13,7 @@ import {AuthorizationService} from 'src/app/autharization.service'
 export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
+  userData:any;
 
   constructor(private fb: FormBuilder, private as: AuthorizationService) {
     this.createForm();
@@ -26,6 +27,7 @@ export class LoginComponent implements OnInit {
   }
 
   authorization(login,password){
+
     this.as.authorization(login,password);
   }
 
