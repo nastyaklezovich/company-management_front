@@ -1,10 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import{ ReactiveFormsModule, FormsModule} from '@angular/forms';
-import{ HttpClientModule} from '@angular/common/http'
-import{ OrderService } from './order.service';
-import {RouterModule} from '@angular/router';
-import {CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot} from "@angular/router";
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http'
+import { OrderService } from './order.service';
+import { RouterModule } from '@angular/router';
+import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from "@angular/router";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -28,14 +28,26 @@ import { CustomerComponent } from './customer/customer.component';
 import { LoginComponent } from './login/login.component';
 import { ProjectsComponent } from './ba/projects/projects.component';
 import { RequestsComponent } from './ba/requests/requests.component';
+import { WorkWithWorkersComponent } from './admin/work-with-workers/work-with-workers.component';
+import { WorkWithDepartementComponent } from './admin/work-with-departement/work-with-departement.component';
+import { DepartementsFormComponent } from './admin/work-with-departement/departements-form/departements-form.component';
+import { DepartementsTableComponent } from './admin/work-with-departement/departements-table/departements-table.component';
+import { WorkersTableComponent } from './admin/work-with-workers/workers-table/workers-table.component';
+import { WorkersRequestsTableComponent } from './admin/work-with-workers/workers-requests-table/workers-requests-table.component';
 
 
 const routes = [
-  {path: '', component: ContentComponent},
-  {path: 'table', component: GetdataComponent},
-  {path: 'edit/:id', component: EditdataComponent},
-  {path: 'login', component: LoginComponent},
- 
+  { path: '', component: ContentComponent },
+  { path: 'table', component: GetdataComponent },
+  { path: 'edit/:id', component: EditdataComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'services', component: ServicesComponent },
+  {
+    path: 'admin', component: AdminComponent,
+    children: [{ path: 'departements', component: WorkWithDepartementComponent },
+    { path: 'workers', component: WorkWithWorkersComponent }]
+  },
+
 ]
 
 @NgModule({
@@ -61,15 +73,23 @@ const routes = [
     LoginComponent,
     ProjectsComponent,
     RequestsComponent,
+    WorkWithWorkersComponent,
+    WorkWithDepartementComponent,
+    DepartementsFormComponent,
+    DepartementsTableComponent,
+    WorkersTableComponent,
+    WorkersRequestsTableComponent,
   ],
   imports: [
     FormsModule,
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule, 
-    RouterModule.forRoot(routes)
+    HttpClientModule,
+    RouterModule.forRoot(routes),
+    RouterModule.forChild(routes)
   ],
+
   providers: [OrderService],
   bootstrap: [AppComponent]
 })
