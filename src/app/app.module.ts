@@ -30,10 +30,12 @@ import { ProjectsComponent } from './ba/projects/projects.component';
 import { RequestsComponent } from './ba/requests/requests.component';
 import { WorkWithWorkersComponent } from './admin/work-with-workers/work-with-workers.component';
 import { WorkWithDepartementComponent } from './admin/work-with-departement/work-with-departement.component';
-import { DepartementsFormComponent } from './admin/work-with-departement/departements-form/departements-form.component';
+import { DepartementsFormComponent } from './admin/work-with-departement/departements-table/departements-form/departements-form.component';
 import { DepartementsTableComponent } from './admin/work-with-departement/departements-table/departements-table.component';
 import { WorkersTableComponent } from './admin/work-with-workers/workers-table/workers-table.component';
 import { WorkersRequestsTableComponent } from './admin/work-with-workers/workers-requests-table/workers-requests-table.component';
+import { DepartementService } from './departement.service';
+import { DepartementsEditComponent } from './admin/work-with-departement/departements-table/departements-edit/departements-edit.component';
 
 
 const routes = [
@@ -44,7 +46,7 @@ const routes = [
   { path: 'services', component: ServicesComponent },
   {
     path: 'admin', component: AdminComponent,
-    children: [{ path: 'departements', component: WorkWithDepartementComponent },
+    children: [{ path: 'departements', component: WorkWithDepartementComponent, children: [{ path: 'editDepartements', component: DepartementsEditComponent }, { path: 'addDepartements', component: DepartementsFormComponent }] },
     { path: 'workers', component: WorkWithWorkersComponent }]
   },
 
@@ -79,6 +81,7 @@ const routes = [
     DepartementsTableComponent,
     WorkersTableComponent,
     WorkersRequestsTableComponent,
+    DepartementsEditComponent,
   ],
   imports: [
     FormsModule,
@@ -90,7 +93,7 @@ const routes = [
     RouterModule.forChild(routes)
   ],
 
-  providers: [OrderService],
+  providers: [OrderService, DepartementService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,3 +1,21 @@
-<p>
-  departements-table works!
-</p>
+<div class="container">
+    <a routerLink = "/admin/departements/addDepartements" class="btn btn-primary btn-space pull-right"><span class="fa fa-plus-square"></span></a>
+  <table class="table table-hover">
+    <thead>
+    <tr>
+        <td>Название департамента</td>
+        <td>Количество сотрудников</td>
+        <td colspan="2">Действия</td>
+    </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let departement of departements">
+            <td>{{ departement.departement_name }}</td>
+            <td>{{ departement.workers_quantity }}</td>
+            <td><a [routerLink]="['/admin/departements/editDepartements', departement.id]" class="btn btn-primary"><span class="fa fa-pencil-square"></span></a></td>
+            <td><a (click) = "deleteDepartement(departement.id)" class="btn btn-danger"><span class="fa fa-minus-square"></span></a></td>
+        </tr>
+    </tbody>
+  </table>
+  <router-outlet></router-outlet>
+</div>

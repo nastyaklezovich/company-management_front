@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {DepartementService} from 'src/app/departement.service'
+import Departement from '../../../Departement'
 
 @Component({
   selector: 'app-departements-table',
@@ -7,9 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DepartementsTableComponent implements OnInit {
 
-  constructor() { }
+  departements: Departement[];
+
+  constructor(private ds: DepartementService) { }
+
+  deleteDepartement(id) {
+    this.ds.deleteDepartement(id).subscribe(res => {
+      console.log(id);
+      console.log('Deleted');
+    });
+  }
 
   ngOnInit() {
+    this.ds.getDepartement().subscribe((data: Departement[])=>{
+      console.log(data);
+      this.departements = data;
+    });
+    
   }
 
 }
