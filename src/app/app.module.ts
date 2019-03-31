@@ -36,6 +36,7 @@ import { WorkersTableComponent } from './admin/work-with-workers/workers-table/w
 import { WorkersRequestsTableComponent } from './admin/work-with-workers/workers-requests-table/workers-requests-table.component';
 import { DepartementService } from './departement.service';
 import { DepartementsEditComponent } from './admin/work-with-departement/departements-table/departements-edit/departements-edit.component';
+import { UsersEditComponent } from './admin/work-with-workers/workers-table/users-edit/users-edit.component';
 
 
 const routes = [
@@ -46,8 +47,8 @@ const routes = [
   { path: 'services', component: ServicesComponent },
   {
     path: 'admin', component: AdminComponent,
-    children: [{ path: 'departements', component: WorkWithDepartementComponent, children: [{ path: 'editDepartements', component: DepartementsEditComponent }, { path: 'addDepartements', component: DepartementsFormComponent }] },
-    { path: 'workers', component: WorkWithWorkersComponent }]
+    children: [{ path: 'departements', component: WorkWithDepartementComponent, children: [{ path: 'editDepartements/:id', component: DepartementsEditComponent }, { path: 'addDepartements', component: DepartementsFormComponent }] },
+    { path: 'workers', component: WorkWithWorkersComponent, children: [{ path: 'workersTable', component: WorkersTableComponent, children:[{path:'editUser/:id', component: UsersEditComponent}] }, { path: 'workersRequest', component: WorkersRequestsTableComponent }] }]
   },
 
 ]
@@ -82,6 +83,7 @@ const routes = [
     WorkersTableComponent,
     WorkersRequestsTableComponent,
     DepartementsEditComponent,
+    UsersEditComponent,
   ],
   imports: [
     FormsModule,

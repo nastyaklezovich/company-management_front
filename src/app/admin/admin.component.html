@@ -1,5 +1,25 @@
-<div class="container list-group">
-  <a routerLink="/admin/departements" class="list-group-item"><span class="	fa fa-group"></span>Департаменты</a>
-  <a routerLink="/admin/workers" class="list-group-item"><span class="fa fa-id-card"></span>Работники</a>
+<div class="container">
+  <div class="dropdown open">
+    <button class="btn dropdown-toggle btn-outline-dark btn-lg" type="button" id="dropdownMenuButton"
+      data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="fa fa-group"></span>
+      Департаменты
+    </button>
+    <div class="dropdown-menu " aria-labelledby="dropdownMenuButton">
+      <a routerLink="/admin/departements" class="dropdown-item ">Департаменты</a>
+    </div>
+  </div>
+  <div class="dropdown open">
+    <button class="btn dropdown-toggle btn-outline-dark btn-lg" type="button" id="dropdownMenuButton"
+      data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="fa fa-id-card"></span>
+      Пользователи
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <a class="dropdown-item" routerLink="/admin/workers/workersRequest">Принятие заявок на добавление
+        пользователей</a>
+      <a class="dropdown-item" routerLink="/admin/workers/workersTable">Все пользователи</a>
+    </div>
+  </div>
+  <hr>
 </div>
+
 <router-outlet></router-outlet>

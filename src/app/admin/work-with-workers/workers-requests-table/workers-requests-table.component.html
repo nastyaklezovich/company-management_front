@@ -1,3 +1,28 @@
-<p>
-  workers-requests-table works!
-</p>
+<div class="container">
+  <h1 class="text-center">Управление заявками пользователей</h1>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <td>ФИО</td>
+        <td>E-mail</td>
+        <td>Номер телефона</td>
+        <td>Должность</td>
+        <td>Дата рождения</td>
+        <td>Принять</td>
+        <td>Отклонить</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let request of requests">
+        <td>{{ request.full_name }}</td>
+        <td>{{ request.email }}</td>
+        <td>{{ request.position }}</td>
+        <td>{{ request.dob }}</td>
+        <td><a (click)="applyRequest(request.id)" class="btn btn-primary"><span class="fa fa-check"></span></a></td>
+        <td><a (click)="deleteRequest(request.id)" class="btn btn-danger"><span class="fa 	fa fa-close"></span></a></td>
+      </tr>
+    </tbody>
+  </table>
+  <hr>
+  <router-outlet></router-outlet>
+</div>
