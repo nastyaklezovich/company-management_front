@@ -11,9 +11,9 @@ export class DepartementService {
 
   constructor(private http: HttpClient) { }
 
-  addDepartement(departements_name) {
+  addDepartement(departement_name) {
     const obj = {
-        departements_name: departements_name,
+        departement_name: departement_name,
     };
 
     this.http.post(`${this.uri}/addDepartement`, obj)
@@ -40,9 +40,9 @@ export class DepartementService {
     return this.http.get(`${this.uri}/getDepartement/${id}`);
   }
 
-  updateDepartement(departments_name, id) {
+  updateDepartement(department_name, id) {
     const obj = {
-      departements_name: departments_name,
+      departement_name: department_name,
     };
     
     this

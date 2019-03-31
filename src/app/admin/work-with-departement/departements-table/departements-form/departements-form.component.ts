@@ -17,12 +17,12 @@ export class DepartementsFormComponent implements OnInit {
 
   createForm() {
     this.depForm = this.fb.group({
-      departements_name: ['', Validators.required]
+      departement_name: ['', Validators.required]
     })
   }
 
-  addDepartement(departements_name){
-    this.ds.addDepartement(departements_name);
+  addDepartement(departement_name){
+    this.ds.addDepartement(departement_name);
   }
 
   ngOnInit() {
