@@ -24,13 +24,13 @@ export class DepartementsEditComponent implements OnInit {
 
   createForm() {
     this.depForm = this.fb.group({
-      departements_name: ['', Validators.required],
+      departement_name: ['', Validators.required],
     });
   }
 
-  updateDepartement(departements_name) {
+  updateDepartement(departement_name) {
     this.route.params.subscribe(params => {
-      this.ds.updateDepartement(departements_name,params['id']);
+      this.ds.updateDepartement(departement_name, params['id']);
       // this.router.navigate(['table']);
     });
   }

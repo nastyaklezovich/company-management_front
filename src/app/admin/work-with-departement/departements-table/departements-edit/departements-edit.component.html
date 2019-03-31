@@ -5,19 +5,18 @@
         <form [formGroup]="depForm" novalidate>
           <div class="form-group">
             <label class="col-md-4">Название департамента</label>
-            <input type="text" class="form-control" formControlName="departments_name" #departments_name
-              [(ngModel)]="res.departments_name" [value]="res.departments_name" />
+            <input type="text" class="form-control" formControlName="departement_name" #departement_name
+              [(ngModel)]="res.departement_name" [value]="res.departement_name" />
           </div>
           <div
-            *ngIf="depForm.controls['departments_name'].invalid && (depForm.controls['departments_name'].dirty || depForm.controls['departments_name'].touched)"
+            *ngIf="depForm.controls['departement_name'].invalid && (depForm.controls['departement_name'].dirty || depForm.controls['departement_name'].touched)"
             class="alert alert-danger">
-            <div *ngIf="depForm.controls['departments_name'].errors.required">
+            <div *ngIf="depForm.controls['departement_name'].errors.required">
               Поле "Название департамента" пусто!
             </div>
-          </div>
-         
+          </div>  
           <div class="form-group">
-            <button (click)="updateDepartemnet(departements_name.value)"
+            <button (click)=" updateDepartement(departement_name.value)"
               [disabled]="depForm.invalid" class="btn btn-primary">Изменить департамент</button>
           </div>
         </form>

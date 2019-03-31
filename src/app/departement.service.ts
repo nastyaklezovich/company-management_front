@@ -12,10 +12,7 @@ export class DepartementService {
   constructor(private http: HttpClient) { }
 
   addDepartement(departement_name) {
-    const obj = {
-        departement_name: departement_name,
-    };
-
+    const obj = departement_name;
     this.http.post(`${this.uri}/addDepartement`, obj)
       .subscribe(res => {
           console.log("Done");
