@@ -27,5 +27,6 @@ export class DepartementsTableComponent implements OnInit {
     });
     
   }
+  
 
 }

@@ -1,27 +1,35 @@
 <div class="container">
   <h1 class="text-center">Управление департаментами</h1>
-  <a routerLink="/admin/departements/addDepartements" class="btn btn-primary btn-space pull-right"><span
-      class="fa fa-plus-square"></span></a>
+  <form>
+    <a routerLink="/admin/departements/addDepartements" class="btn  pull-right btn-lg"><span
+        class="fa fa-plus-square"></span> Добавить
+    </a>
+  </form>
+  <div class="row">
+    <input type="text" placeholder="Поиск" [(ngModel)]="departement_name">
+  </div>
+
   <table class="table table-hover">
-    <thead>
+    <thead class="thead-light">
       <tr>
-        <td>Название департамента</td>
-        <td>Количество сотрудников</td>
-        <td>Редактировать</td>
-        <td>Удалить</td>
+        <th>Название департамента</th>
+        <th>Количество сотрудников</th>
+        <th>Редактировать</th>
+        <th>Удалить</th>
       </tr>
     </thead>
+
     <tbody>
-      <tr *ngFor="let departement of departements">
+      <tr *ngFor="let departement of departements |filter:departement_name">
         <td>{{ departement.departement_name }}</td>
         <td>{{ departement.workers_quantity }}</td>
-        <td><a [routerLink]="['/admin/departements/editDepartements', departement.id]" class="btn btn-primary"><span
-              class="fa fa-pencil-square"></span></a></td>
-        <td><a (click)="deleteDepartement(departement.id)" class="btn btn-danger"><span
-              class="fa fa-minus-square"></span></a></td>
+        <td><a [routerLink]="['/admin/departements/editDepartements', departement.id]"><span
+              class="fa fa-pencil-square-o fa-2x"></span></a></td>
+        <td><a (click)="deleteDepartement(departement.id)" ><span class="fa fa-trash-o fa-2x"></span></a></td>
       </tr>
     </tbody>
   </table>
+
   <hr>
   <router-outlet></router-outlet>
 </div>

@@ -5,6 +5,8 @@ import { HttpClientModule } from '@angular/common/http'
 import { OrderService } from './order.service';
 import { RouterModule } from '@angular/router';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from "@angular/router";
+import {Ng2SearchPipeModule} from 'ng2-search-filter';
+import {ModalModule} from 'ngx-bootstrap/modal';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -88,11 +90,13 @@ const routes = [
   imports: [
     FormsModule,
     BrowserModule,
+    Ng2SearchPipeModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
     RouterModule.forRoot(routes),
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    ModalModule.forRoot()
   ],
 
   providers: [OrderService, DepartementService],

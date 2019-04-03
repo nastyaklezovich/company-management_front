@@ -37,10 +37,9 @@ export class DepartementService {
     return this.http.get(`${this.uri}/getDepartement/${id}`);
   }
 
-  updateDepartement(department_name, id) {
-    const obj = {
-      departement_name: department_name,
-    };
+  updateDepartement(departement_name, id) {
+
+    const obj =  departement_name;
     
     this
       .http

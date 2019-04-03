@@ -1,3 +1,25 @@
 .btn-space{
     margin: 10px;
 }
+
+.fa-pencil-square-o{
+    color: rgb(255, 174, 0);
+}
+
+.fa-trash-o{
+    color: red;
+}
+
+.fa-trash-o:hover{
+    cursor: pointer;
+}
+
+.fa-plus-square{
+    color: rgb(255, 174, 0);
+}
+
+.thead-light {
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+  }
