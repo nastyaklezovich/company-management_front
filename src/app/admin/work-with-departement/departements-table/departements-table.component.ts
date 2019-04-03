@@ -10,6 +10,11 @@ import Departement from '../../../Departement';
 })
 export class DepartementsTableComponent implements OnInit {
 
+  public popoverTitle: string ="Удаление";
+  public popoverMessage: string='Вы действительно хотите удалить данные?';
+  public confirmClicked:boolean=false;
+  public cancelClicked: boolean = false;
+
   departements: Departement[];
 
   p: number = 1;

@@ -8,6 +8,7 @@ import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from "@angul
 import {Ng2SearchPipeModule} from 'ng2-search-filter';
 import {ModalModule} from 'ngx-bootstrap/modal';
 import {NgxPaginationModule} from 'ngx-pagination';
+import {ConfirmationPopoverModule} from 'angular-confirmation-popover';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -97,7 +98,8 @@ const routes = [
     RouterModule.forRoot(routes),
     RouterModule.forChild(routes),
     ModalModule.forRoot(),
-    NgxPaginationModule
+    NgxPaginationModule,
+    ConfirmationPopoverModule.forRoot({confirmButtonType: 'danger'}),
   ],
 
   providers: [OrderService, DepartementService],
