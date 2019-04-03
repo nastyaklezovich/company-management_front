@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from "@angular/router";
 import {Ng2SearchPipeModule} from 'ng2-search-filter';
 import {ModalModule} from 'ngx-bootstrap/modal';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -52,7 +53,6 @@ const routes = [
     children: [{ path: 'departements', component: WorkWithDepartementComponent, children: [{ path: 'editDepartements/:id', component: DepartementsEditComponent }, { path: 'addDepartements', component: DepartementsFormComponent }] },
     { path: 'workers', component: WorkWithWorkersComponent, children: [{ path: 'workersTable', component: WorkersTableComponent, children:[{path:'editUser/:id', component: UsersEditComponent}] }, { path: 'workersRequest', component: WorkersRequestsTableComponent }] }]
   },
-
 ]
 
 @NgModule({
@@ -96,7 +96,8 @@ const routes = [
     HttpClientModule,
     RouterModule.forRoot(routes),
     RouterModule.forChild(routes),
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    NgxPaginationModule
   ],
 
   providers: [OrderService, DepartementService],

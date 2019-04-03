@@ -1,12 +1,15 @@
 <div class="container">
   <h1 class="text-center">Управление департаментами</h1>
   <form>
-    <a routerLink="/admin/departements/addDepartements" class="btn  pull-right btn-lg"><span
+      <app-departements-form></app-departements-form>
+    <!-- <a routerLink="/admin/departements/addDepartements" class="btn  pull-right btn-lg"><span
         class="fa fa-plus-square"></span> Добавить
-    </a>
+    </a> -->
   </form>
-  <div class="row">
-    <input type="text" placeholder="Поиск" [(ngModel)]="departement_name">
+  <div class="row ">
+    <div class="col-sm-4">
+        <input class="form-control" type="text" placeholder="Поиск" [(ngModel)]="departement_name">
+    </div>
   </div>
 
   <table class="table table-hover">
@@ -20,7 +23,7 @@
     </thead>
 
     <tbody>
-      <tr *ngFor="let departement of departements |filter:departement_name">
+      <tr *ngFor="let departement of departements |filter:departement_name |paginate: {itemsPerPage: 10, currentPage: p}">
         <td>{{ departement.departement_name }}</td>
         <td>{{ departement.workers_quantity }}</td>
         <td><a [routerLink]="['/admin/departements/editDepartements', departement.id]"><span
@@ -28,6 +31,7 @@
         <td><a (click)="deleteDepartement(departement.id)" ><span class="fa fa-trash-o fa-2x"></span></a></td>
       </tr>
     </tbody>
+    <pagination-controls (pageChange)="p=$event"></pagination-controls>
   </table>
 
   <hr>

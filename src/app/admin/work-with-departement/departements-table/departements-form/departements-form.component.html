@@ -1,26 +1,65 @@
-
-
-<div class="container">
-  <div class="card">
-    <div class="card-body">
-      <form [formGroup]="depForm" novalidate>
-        <div class="form-group">
-          <label class="col-md-4">Название департамента</label>
-          <input type="text" class="form-control" formControlName="departement_name" #departement_name />
-        </div>
-        <div
-          *ngIf="depForm.controls['departement_name'].invalid && (depForm.controls['departement_name'].dirty || depForm.controls['departement_name'].touched)"
-          class="alert alert-danger">
-          <div *ngIf="depForm.controls['departement_name'].errors.required">
-            Поле "Название департамента" не заполнено!
-          </div>
-        </div>
-
-        <div class="form-group">
-          <button (click)="addDepartement(departement_name.value)"
-            [disabled]="depForm.invalid" class="btn btn-primary">Добавить</button>
-        </div>
-      </form>
-    </div>
+<button type="button" class="btn  pull-right btn-lg" (click)="openModal(template)"><span
+        class="fa fa-plus-square"></span> Добавить</button>
+<ng-template #template>
+  <div class="modal-header">
+    <h5 class="modal-title">Добавление департамента</h5>
+    <button type="button" class="close" (click)="modalRef.hide()" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
   </div>
-</div>
+  <div class="modal-body">
+    <form [formGroup]="depForm" novalidate>
+      <div class="form-group">
+        <label>Название департамента</label>
+        <input type="text" class="form-control" formControlName="departement_name" #departement_name/>
+      </div>
+      <div
+        *ngIf="depForm.controls['departement_name'].invalid && (depForm.controls['departement_name'].dirty || depForm.controls['departement_name'].touched)"
+        class="alert alert-danger">
+        <div *ngIf="depForm.controls['departement_name'].errors.required">
+          Поле "Название департамента" не заполнено!
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button (click)="addDepartement(departement_name.value)" [disabled]="depForm.invalid"
+      class="btn btn-primary">Добавить</button>
+    <button type="button" class="btn btn-secondary" (click)="modalRef.hide()">Отменить</button>
+  </div>
+</ng-template>
+
+<!-- <div class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Добавление департамента</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+
+          <form [formGroup]="depForm" novalidate>
+            <div
+              *ngIf="depForm.controls['departement_name'].invalid && (depForm.controls['departement_name'].dirty || depForm.controls['departement_name'].touched)"
+              class="alert alert-danger">
+              <div *ngIf="depForm.controls['departement_name'].errors.required">
+                Поле "Название департамента" не заполнено!
+              </div>
+            </div>
+
+            <div class="form-group">
+              <button (click)="addDepartement(departement_name.value)" [disabled]="depForm.invalid"
+                class="btn btn-primary">Добавить</button>
+            </div>
+          </form>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary">Save changes</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div> -->
