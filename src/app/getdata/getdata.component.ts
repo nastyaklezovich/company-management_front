@@ -12,12 +12,6 @@ export class GetdataComponent implements OnInit {
 
   constructor(private os: OrderService) { }
 
-/*   editOrder(id) {
-    this.os.editOrder(id).subscribe(res => {
-      console.log(id);
-    });
-  }
- */
   deleteOrder(id) {
     this.os.deleteOrder(id).subscribe(res => {
       console.log(id);
@@ -28,7 +22,7 @@ export class GetdataComponent implements OnInit {
   ngOnInit() {
     this.os.getOrder().subscribe((data: Order[])=>{
       console.log(data);
-      this.orders=data;
+      this.orders = data;
     });
     
   }

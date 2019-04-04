@@ -22,12 +22,19 @@ import { AutorizationComponent } from './autorization/autorization.component';
 import { ContactsComponent } from './content/contacts/contacts.component';
 import { GetdataComponent } from './getdata/getdata.component';
 import { EditdataComponent } from './getdata/editdata/editdata.component';
+import { AdminComponent } from './admin/admin.component';
+import { UserComponent } from './user/user.component';
+import { EmployeeComponent } from './employee/employee.component';
+import { ManagerComponent } from './manager/manager.component';
 
 const routes = [
   {path: '', component: ContentComponent},
   {path: 'authorization', component:  AutorizationComponent},
   {path: 'table', component: GetdataComponent},
-  {path: 'edit/:id', component: EditdataComponent}
+  {path: 'edit/:id', component: EditdataComponent},
+  {path: 'admin', component: AdminComponent},
+  {path: 'employee', component: EmployeeComponent},
+  {path: 'manager', component: ManagerComponent}
 ]
 
 @NgModule({
@@ -47,7 +54,11 @@ const routes = [
     AutorizationComponent,
     ContactsComponent,
     GetdataComponent,
-    EditdataComponent
+    EditdataComponent,
+    AdminComponent,
+    UserComponent,
+    EmployeeComponent,
+    ManagerComponent
 
   ],
   imports: [

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import Order from '../../Form';
-import { OrderService } from 'src/app/order.service';
+import { OrderService } from 'src/app/order.service'
+;
 
 @Component({
   selector: 'app-editdata',
@@ -11,7 +11,8 @@ import { OrderService } from 'src/app/order.service';
 })
 export class EditdataComponent implements OnInit {
 
-  order: any = {};
+  order: {} = {};
+  res: {} = {}
   angForm: FormGroup;
 
   constructor(private route: ActivatedRoute,
@@ -40,9 +41,10 @@ export class EditdataComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.os.editOrder(params['id']).subscribe(res => {
-        console.log("oooo- aaaaaa");
         console.log(res);
-        this.order = res;
+        this.order = { ...res };
+        this.res = res;
+
       });
     });
   }
