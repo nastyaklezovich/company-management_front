@@ -9,6 +9,7 @@ import {Ng2SearchPipeModule} from 'ng2-search-filter';
 import {ModalModule} from 'ngx-bootstrap/modal';
 import {NgxPaginationModule} from 'ngx-pagination';
 import {ConfirmationPopoverModule} from 'angular-confirmation-popover';
+import {OrderModule} from 'ngx-order-pipe';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -100,6 +101,7 @@ const routes = [
     ModalModule.forRoot(),
     NgxPaginationModule,
     ConfirmationPopoverModule.forRoot({confirmButtonType: 'danger'}),
+    OrderModule
   ],
 
   providers: [OrderService, DepartementService],

@@ -15,8 +15,16 @@
   <table class="table table-hover">
     <thead class="thead-light">
       <tr>
-        <th>Название департамента</th>
-        <th>Количество сотрудников</th>
+        <th>№</th>
+        <th [class.active]="order === 'departement_name'" (click)="setOrder('departement_name')"
+          class="mdl-data-table__cell--non-numeric">
+          Название департамента <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
+        </th>
+        <th
+            [class.active]="order === 'workers_quantity'" (click)="setOrder('workers_quantity')"
+            class="mdl-data-table__cell--non-numeric">
+            Количество сотрудников <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
+        </th>
         <th>Редактировать</th>
         <th>Удалить</th>
       </tr>
@@ -24,7 +32,8 @@
 
     <tbody>
       <tr
-        *ngFor="let departement of departements |filter:departement_name |paginate: {itemsPerPage: 10, currentPage: p}">
+        *ngFor="let departement of departements|filter:departement_name|orderBy:predicate:reverse|paginate: {itemsPerPage: 10, currentPage: p}; let i=index">
+       <td>{{i}}</td>
         <td>{{ departement.departement_name }}</td>
         <td>{{ departement.workers_quantity }}</td>
         <td><a [routerLink]="['/admin/departements/editDepartements', departement.id]"><span

@@ -1,7 +1,7 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
 import {DepartementService} from 'src/app/departement.service'
 import Departement from '../../../Departement';
-
+import { OrderPipe } from 'ngx-order-pipe';
 
 @Component({
   selector: 'app-departements-table',
@@ -9,6 +9,9 @@ import Departement from '../../../Departement';
   styleUrls: ['./departements-table.component.css']
 })
 export class DepartementsTableComponent implements OnInit {
+
+  public order: string = 'departement.departement_name';
+  public reverse: boolean = false;
 
   public popoverTitle: string ="Удаление";
   public popoverMessage: string='Вы действительно хотите удалить данные?';
@@ -19,7 +22,12 @@ export class DepartementsTableComponent implements OnInit {
 
   p: number = 1;
 
-  constructor(private ds: DepartementService) { }
+  sortedCollection: any[];
+
+  constructor(private ds: DepartementService, private orderPipe: OrderPipe) {
+    this.sortedCollection = orderPipe.transform(this.departements, 'departement.departement_name');
+    console.log(this.sortedCollection);
+   }
 
   deleteDepartement(id) {
     this.ds.deleteDepartement(id).subscribe(res => {
@@ -28,6 +36,12 @@ export class DepartementsTableComponent implements OnInit {
     });
   }
 
+  setOrder(value: string) {
+    if (this.order === value) {
+      this.reverse = !this.reverse;
+    }
+    this.order = value;
+  }
   // open(){
   //   this.dfc.
   // }
