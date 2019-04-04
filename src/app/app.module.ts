@@ -3,11 +3,12 @@ import { NgModule } from '@angular/core';
 import{ ReactiveFormsModule, FormsModule} from '@angular/forms';
 import{ HttpClientModule} from '@angular/common/http'
 import{ OrderService } from './order.service';
-import {RouterModule} from '@angular/router'
+import {RouterModule} from '@angular/router';
+import {CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot} from "@angular/router";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
+import { HeaderComponent } from './content/header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { ContentComponent } from './content/content.component';
 import { ServicesComponent } from './content/services/services.component';
@@ -18,23 +19,23 @@ import { ImagesComponent } from './content/images/images.component';
 import { DevelopmentComponent } from './content/services/development/development.component';
 import { AnaliticsComponent } from './content/services/analitics/analitics.component';
 import { TechnologiesComponent } from './content/services/technologies/technologies.component';
-import { AutorizationComponent } from './autorization/autorization.component';
 import { ContactsComponent } from './content/contacts/contacts.component';
 import { GetdataComponent } from './getdata/getdata.component';
 import { EditdataComponent } from './getdata/editdata/editdata.component';
+import { BAComponent } from './ba/ba.component';
 import { AdminComponent } from './admin/admin.component';
-import { UserComponent } from './user/user.component';
-import { EmployeeComponent } from './employee/employee.component';
-import { ManagerComponent } from './manager/manager.component';
+import { CustomerComponent } from './customer/customer.component';
+import { LoginComponent } from './login/login.component';
+import { ProjectsComponent } from './ba/projects/projects.component';
+import { RequestsComponent } from './ba/requests/requests.component';
+
 
 const routes = [
   {path: '', component: ContentComponent},
-  {path: 'authorization', component:  AutorizationComponent},
   {path: 'table', component: GetdataComponent},
   {path: 'edit/:id', component: EditdataComponent},
-  {path: 'admin', component: AdminComponent},
-  {path: 'employee', component: EmployeeComponent},
-  {path: 'manager', component: ManagerComponent}
+  {path: 'login', component: LoginComponent},
+ 
 ]
 
 @NgModule({
@@ -51,15 +52,15 @@ const routes = [
     DevelopmentComponent,
     AnaliticsComponent,
     TechnologiesComponent,
-    AutorizationComponent,
     ContactsComponent,
     GetdataComponent,
     EditdataComponent,
+    BAComponent,
     AdminComponent,
-    UserComponent,
-    EmployeeComponent,
-    ManagerComponent
-
+    CustomerComponent,
+    LoginComponent,
+    ProjectsComponent,
+    RequestsComponent,
   ],
   imports: [
     FormsModule,

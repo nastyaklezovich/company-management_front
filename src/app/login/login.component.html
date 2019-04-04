@@ -1,0 +1,20 @@
+<div class="container">
+  <h2 class="text-center">Авторизация</h2>
+  <div class="row justify-content-center align-items-center">
+    <form [formGroup]="loginForm" role="from" class="form-group">
+      <div class="form-row">
+        <div class="from-group col-md-12">
+          <label for="input-login">Логин:</label>
+          <input formControlName="login" class="form-control input-login" type="text" placeholder="Введите логин..." #login><br>
+        </div><br>
+        <div class="form-group col-md-12">
+          <label for="input-password">Пароль:</label>
+          <input formControlName="password" class="form-control input-password" type="password" placeholder="Введите пароль..." #password><br>
+        </div>
+      </div>
+      <div class="form-group justify-content-center align-items-center text-center">
+        <button (click)="authorization(login.value,password.value)"class="btn btn-primary">Войти</button>
+      </div>
+    </form>
+  </div>
+</div>
