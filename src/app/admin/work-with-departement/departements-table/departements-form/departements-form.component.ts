@@ -1,6 +1,6 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import {DepartementService} from 'src/app/departement.service';
+import {DepartmentService} from 'src/app/department.service';
 import {BsModalService, BsModalRef} from 'ngx-bootstrap/modal';
 
 @Component({
@@ -13,7 +13,7 @@ export class DepartementsFormComponent implements OnInit {
   modalRef:BsModalRef;
   depForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private ds: DepartementService, private modalService: BsModalService) {
+  constructor(private fb: FormBuilder, private ds: DepartmentService, private modalService: BsModalService) {
     this.createForm();
   }
 
@@ -28,7 +28,7 @@ export class DepartementsFormComponent implements OnInit {
   }
 
   addDepartement(departement_name){
-    this.ds.addDepartement(departement_name);
+    this.ds.addDepartment(departement_name);
     this.modalRef.hide();
   }
 

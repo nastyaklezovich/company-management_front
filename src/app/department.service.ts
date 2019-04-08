@@ -5,14 +5,14 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 
-export class DepartementService {
+export class DepartmentService {
   
   uri = 'https://localhost:8080';
 
   constructor(private http: HttpClient) { }
 
-  addDepartement(departement_name) {
-    const obj = departement_name;
+  addDepartment(department_name) {
+    const obj = department_name;
     this.http.post(`${this.uri}/department`, obj)
       .subscribe(res => {
           console.log("Done");
@@ -21,25 +21,25 @@ export class DepartementService {
     console.log(obj);
   }
 
-  deleteDepartement(id) {
+  deleteDepartment(id) {
     return this
       .http
       .delete(`${this.uri}/department/${id}`);
   }
 
-  getDepartement() {
+  getDepartment() {
     return this
       .http
-      .get(`${this.uri}/department`);
+      .get(`${this.uri}/departments`);
   };
 
-  editDepartement(id) {
+  editDepartment(id) {
     return this.http.get(`${this.uri}/department/${id}`);
   }
 
-  updateDepartement(departement_name, id) {
+  updateDepartment(department_name, id) {
 
-    const obj =  departement_name;
+    const obj =  department_name;
     
     this
       .http

@@ -14,17 +14,17 @@ export class OrderService {
   deleteOrder(id) {
     return this
       .http
-      .delete(`${this.uri}/delete/${id}`);
+      .delete(`${this.uri}/cooperation-request/${id}`);
   }
 
   getOrder() {
     return this
       .http
-      .get(`${this.uri}/get`);
+      .get(`${this.uri}/cooperation-requests`);
   };
 
   editOrder(id) {
-    return this.http.get(`${this.uri}/get/${id}`);
+    return this.http.get(`${this.uri}/cooperation-request/${id}`);
   }
 
   updateOrder(person_name, email, number, order, id) {
@@ -37,7 +37,7 @@ export class OrderService {
     
     this
       .http
-      .put(`${this.uri}/update/${id}`, obj)
+      .put(`${this.uri}/cooperation-request/${id}`, obj)
       .subscribe(res => console.log('Done'));
   }
 
@@ -53,7 +53,7 @@ export class OrderService {
     console.log(obj);
 
 
-    this.http.post(`${this.uri}/add`, obj)
+    this.http.post(`${this.uri}/cooperation-request`, obj)
       .subscribe(res => { console.log('Done'); });
 
 

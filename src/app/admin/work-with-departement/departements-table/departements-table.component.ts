@@ -1,5 +1,5 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
-import {DepartementService} from 'src/app/departement.service'
+import {DepartmentService} from 'src/app/department.service'
 import Departement from '../../../Departement';
 import { OrderPipe } from 'ngx-order-pipe';
 
@@ -24,13 +24,13 @@ export class DepartementsTableComponent implements OnInit {
 
   sortedCollection: any[];
 
-  constructor(private ds: DepartementService, private orderPipe: OrderPipe) {
+  constructor(private ds: DepartmentService, private orderPipe: OrderPipe) {
     this.sortedCollection = orderPipe.transform(this.departements, 'departement.departement_name');
     console.log(this.sortedCollection);
    }
 
   deleteDepartement(id) {
-    this.ds.deleteDepartement(id).subscribe(res => {
+    this.ds.deleteDepartment(id).subscribe(res => {
       console.log(id);
       console.log('Deleted'); 
     });
@@ -47,7 +47,7 @@ export class DepartementsTableComponent implements OnInit {
   // }
 
   ngOnInit() {
-    this.ds.getDepartement().subscribe((data: Departement[])=>{
+    this.ds.getDepartment().subscribe((data: Departement[])=>{
       console.log(data);
       this.departements = data;
     });
