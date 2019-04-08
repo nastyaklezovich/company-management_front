@@ -13,7 +13,7 @@ export class DepartementService {
 
   addDepartement(departement_name) {
     const obj = departement_name;
-    this.http.post(`${this.uri}/addDepartement`, obj)
+    this.http.post(`${this.uri}/department`, obj)
       .subscribe(res => {
           console.log("Done");
         });
@@ -24,17 +24,17 @@ export class DepartementService {
   deleteDepartement(id) {
     return this
       .http
-      .delete(`${this.uri}/deleteDepartement/${id}`);
+      .delete(`${this.uri}/department/${id}`);
   }
 
   getDepartement() {
     return this
       .http
-      .get(`${this.uri}/getDepartement`);
+      .get(`${this.uri}/department`);
   };
 
   editDepartement(id) {
-    return this.http.get(`${this.uri}/getDepartement/${id}`);
+    return this.http.get(`${this.uri}/department/${id}`);
   }
 
   updateDepartement(departement_name, id) {
@@ -43,7 +43,7 @@ export class DepartementService {
     
     this
       .http
-      .put(`${this.uri}/updateDepartement/${id}`, obj)
+      .put(`${this.uri}/department/${id}`, obj)
       .subscribe(res => console.log('Done'));
   }
 }
