@@ -131,7 +131,7 @@ const routes = [
     OrderModule
   ],
 
-  providers: [OrderService, DepartementService],
+  providers: [OrderService, DepartmentService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
