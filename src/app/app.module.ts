@@ -53,8 +53,8 @@ const routes = [
   {
     path: "admin",
     component: AdminComponent,
-    canActivate: [AuthGuard],
-    data: { roles: [RoleType.Admin] },
+    // canActivate: [AuthGuard],
+    // data: { roles: [RoleType.Admin] },
     children: [
       {
         path: "departements",
@@ -74,7 +74,11 @@ const routes = [
           {
             path: "workersTable",
             component: WorkersTableComponent,
-            children: [{ path: "editUser/:id", component: UsersEditComponent }]
+            children: [
+              { 
+                path: "editUser/:id", 
+                component: UsersEditComponent 
+              }]
           },
           { path: "workersRequest", component: WorkersRequestsTableComponent }
         ]

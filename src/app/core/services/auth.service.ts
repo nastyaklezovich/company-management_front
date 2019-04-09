@@ -33,7 +33,6 @@ export class AuthService extends BaseService {
           localStorage.setItem("user", JSON.stringify(user));
           this.userSub.next(user);
         }
-
         return user;
       })
     );

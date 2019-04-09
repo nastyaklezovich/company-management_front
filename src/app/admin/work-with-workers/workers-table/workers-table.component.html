@@ -1,33 +1,61 @@
 <div class="container">
-    <h1 class="text-center">Управление зарегистрированными пользователями</h1>
-    <table class="table table-hover">
-      <thead>
-        <tr>
-          <td>ФИО</td>
-          <td>Логин</td>
-          <td>Роль</td>
-          <td>E-mail</td>
-          <td>Номер телефона</td>
-          <td>Должность</td>
-          <td>Дата рождения</td>
-          <td>Изменить</td>
-          <td>Удалить</td>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let user of users">
-          <td>{{ user.full_name }}</td>
-          <td>{{user.login}}</td>
-          <td>{{user.role}}</td>
-          <td>{{ user.email }}</td>
-          <td>{{ user.phone_number }}</td>
-          <td>{{ user.position }}</td>
-          <td>{{ user.dob }}</td>
-          <td><a [routerLink]="['/editUser', user.id]" class="btn btn-primary"><span class="fa fa-pencil-square"></span></a></td>
-          <td><a (click)="deleteUser(user.id)" class="btn btn-danger"><span class="fa fa-minus-square"></span></a></td>
-        </tr>
-      </tbody>
-    </table>
-    <hr>
-    <router-outlet></router-outlet>
+  <h1 class="text-center">Управление зарегистрированными пользователями</h1>
+
+  <div class="row ">
+    <div class="col-sm-4">
+      <input class="form-control" type="text" placeholder="Поиск" [(ngModel)]="name">
+    </div>
   </div>
+  <table class="table table-hover">
+    <thead class="thead-light">
+      <tr>
+        <th [class.active]="order === 'full_name'" (click)="setOrder('full_name')"
+          class="mdl-data-table__cell--non-numeric">
+          ФИО <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
+        </th>
+
+        <th [class.active]="order === 'role'" (click)="setOrder('role')" class="mdl-data-table__cell--non-numeric">
+          Роль <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
+        </th>
+
+        <th [class.active]="order === 'email'" (click)="setOrder('email')" class="mdl-data-table__cell--non-numeric">
+          E-mail <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
+        </th>
+
+        <th [class.active]="order === 'phone_number'" (click)="setOrder('phone_number')"
+          class="mdl-data-table__cell--non-numeric">
+          Номер телефона <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
+        </th>
+
+        <th [class.active]="order === 'position'" (click)="setOrder('position')"
+          class="mdl-data-table__cell--non-numeric">
+          Должность <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
+        </th>
+
+        <th [class.active]="order === 'dob'" (click)="setOrder('dob')" class="mdl-data-table__cell--non-numeric">
+          Дата рождения <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
+        </th>
+
+        <th>Изменить</th>
+        <th>Удалить</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="let user of users|filter:name|orderBy:predicate:reverse|paginate: {itemsPerPage: 10, currentPage: p}; let i=index">
+        <td>{{ user.full_name }}</td>
+        <td>{{user.role}}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.phone_number }}</td>
+        <td>{{ user.position }}</td>
+        <td>{{ user.dob }}</td>
+        <td><a [routerLink]="['./editUser', user.id]" class="btn"><span class="fa fa-pencil-square-o fa-2x"></span></a>
+        </td>
+        <td><a (click)="deleteUser(user.id)" class="btn"><span class="fa fa-trash-o fa-2x"></span></a></td>
+      </tr>
+    </tbody>
+    <pagination-controls (pageChange)="p=$event"></pagination-controls>
+  </table>
+  <hr>
+  <router-outlet></router-outlet>
+</div>

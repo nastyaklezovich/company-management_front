@@ -34,7 +34,7 @@ export class UsersEditComponent implements OnInit {
   updateOrder(full_name, role, email, phone_number,position, dob) {
     this.route.params.subscribe(params => {
       this.us.updateUser(full_name, role, email,phone_number, position, dob, params['id']);
-      this.router.navigate(['table']);
+      // this.router.navigate(['table']);
     });
   }
 
@@ -44,7 +44,6 @@ export class UsersEditComponent implements OnInit {
         console.log(res);
         this.user = { ...res };
         this.res = res;
-
       });
     });
   }
