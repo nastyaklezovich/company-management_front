@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 
-export class RequestService {
+export class RequestCustomerService {
 
   uri = 'https://localhost:8080';
 
@@ -14,18 +14,18 @@ export class RequestService {
   deleteRequest(id) {
     return this
       .http
-      .delete(`${this.uri}/deleteRequest/${id}`);
+      .delete(`${this.uri}/customer-request/${id}`);
   }
 
   getRequest() {
     return this
       .http
-      .get(`${this.uri}/getRequest`);
+      .get(`${this.uri}/customer-requests`);
   };
 
   applyRequest(id) {
 
-    this.http.post(`${this.uri}/addUser`, id)
+    this.http.post(`${this.uri}/customer-request`, id)
       .subscribe(res => { console.log('Done'); });
     console.log(id);
   }

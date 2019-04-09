@@ -39,7 +39,7 @@
         <td><a [routerLink]="['/admin/departements/editDepartements', departement.id]"><span
               class="fa fa-pencil-square-o fa-2x"></span></a></td>
         <!-- <td>
-          <button class="btn btn-default" mwlConfirmationPopover [popoverTitle]="popoverTitle" [popoverMessage]="popoverMessage" placement="left" (confirm)="deleteDepartement(departement.id)" (cancel)="canclClicked=true">Удалить</button>
+          <button class="btn btn-default" mwlConfirmationPopover [popoverTitle]="popoverTitle" [popoverMessage]="popoverMessage" placement="left" (confirm)="deleteDepartment(departement.id)" (cancel)="canclClicked=true">Удалить</button>
         </td> -->
         <td><a mwlConfirmationPopover [popoverTitle]="popoverTitle" [popoverMessage]="popoverMessage" placement="left"
             (confirm)="deleteDepartement(departement.id)" (cancel)="canclClicked=true"><span

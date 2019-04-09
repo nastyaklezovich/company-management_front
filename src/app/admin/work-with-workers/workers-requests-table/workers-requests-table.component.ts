@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import Request from '../../../Request';
-import {RequestService} from '../../../request.service';
+import {RequestCustomerService} from '../../../requestCustomer.service';
+import Request from '../../../CustomerRequest';
 
 @Component({
   selector: 'app-workers-requests-table',
@@ -10,9 +10,9 @@ import {RequestService} from '../../../request.service';
 
 export class WorkersRequestsTableComponent implements OnInit {
 
-  requests: Request[];
+  customer_requests: Request[];
 
-  constructor(private rs: RequestService) { }
+  constructor(private rs: RequestCustomerService) { }
 
   deleteRequest(id) {
     this.rs.deleteRequest(id).subscribe(res => {
@@ -30,7 +30,8 @@ export class WorkersRequestsTableComponent implements OnInit {
   ngOnInit() {
     this.rs.getRequest().subscribe((data: Request[])=>{
       console.log(data);
-      this.requests = data;
+      console.log(data[0]);
+      this.customer_requests = data;
     });
     
   }
