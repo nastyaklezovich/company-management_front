@@ -38,7 +38,7 @@ import { DepartementsFormComponent } from "./admin/work-with-departement/departe
 import { DepartementsTableComponent } from "./admin/work-with-departement/departements-table/departements-table.component";
 import { WorkersTableComponent } from "./admin/work-with-workers/workers-table/workers-table.component";
 import { WorkersRequestsTableComponent } from "./admin/work-with-workers/workers-requests-table/workers-requests-table.component";
-import { DepartementService } from "./departement.service";
+import { DepartmentService } from "./department.service";
 import { DepartementsEditComponent } from "./admin/work-with-departement/departements-table/departements-edit/departements-edit.component";
 import { UsersEditComponent } from "./admin/work-with-workers/workers-table/users-edit/users-edit.component";
 

@@ -1,7 +1,7 @@
 import { Component, OnInit, TemplateRef  } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { DepartementService } from 'src/app/departement.service'
+import { DepartmentService } from 'src/app/department.service'
 import {BsModalService, BsModalRef} from 'ngx-bootstrap/modal';
 
 @Component({
@@ -19,7 +19,7 @@ export class DepartementsEditComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
     private router: Router,
-    private ds: DepartementService,
+    private ds: DepartmentService,
     private fb: FormBuilder,
     private modalService: BsModalService) {
     this.createForm();
@@ -37,7 +37,7 @@ export class DepartementsEditComponent implements OnInit {
 
   updateDepartement(departement_name) {
     this.route.params.subscribe(params => {
-      this.ds.updateDepartement(departement_name, params['id']);
+      this.ds.updateDepartment(departement_name, params['id']);
       // this.router.navigate(['table']);
       this.modalRef.hide();
     });
@@ -45,7 +45,7 @@ export class DepartementsEditComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-      this.ds.editDepartement(params['id']).subscribe(res => {
+      this.ds.editDepartment(params['id']).subscribe(res => {
         console.log(res);
         this.departement = { ...res };
         this.res = res;

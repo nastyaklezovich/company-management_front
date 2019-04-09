@@ -13,13 +13,14 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let request of requests">
-        <td>{{ request.full_name }}</td>
-        <td>{{ request.email }}</td>
-        <td>{{ request.position }}</td>
-        <td>{{ request.dob }}</td>
-        <td><a (click)="applyRequest(request.id)" class="btn btn-primary"><span class="fa fa-check"></span></a></td>
-        <td><a (click)="deleteRequest(request.id)" class="btn btn-danger"><span class="fa 	fa fa-close"></span></a></td>
+      <tr *ngFor="let customer_request of customer_requests">
+        <td>{{ customer_request.full_name }}</td>
+        <td>{{ customer_request.email }}</td>
+        <td>{{ customer_request.phone_number}}</td>
+        <td>{{ customer_request.position }}</td>
+        <td>{{ customer_request.dob }}</td>
+        <td><a (click)="applyRequest(customer_request.id)" class="btn btn-primary"><span class="fa fa-check"></span></a></td>
+        <td><a (click)="deleteRequest(customer_request.id)" class="btn btn-danger"><span class="fa 	fa fa-close"></span></a></td>
       </tr>
     </tbody>
   </table>
