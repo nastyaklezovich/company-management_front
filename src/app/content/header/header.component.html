@@ -1,30 +1,32 @@
 <div class="navbar fixed-top bg-white navbar-expand-lg navbar-light gray">
   <div class="container">
-    <a href="#" class="navbar-brand waves-effect">
-      <img src="../../assets/resources/logo.png" alt="logo" width="45px">
+    <a routerLink="/" class="navbar-brand waves-effect">
+      <img src="../../assets/resources/logo.png" alt="logo" width="45px" />
       <strong>POULAILLER</strong>
     </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navContent"
-      aria-controls="navContent" aria-expanded="false">
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navContent"
+      aria-controls="navContent"
+      aria-expanded="false"
+    >
       <span class="navbar-toggler-icon"></span>
     </button>
     <div id="navContent" class="collapse navbar-collapse">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a  class="nav-link waves-effect" routerLink="/">Home</a>
+          <a class="nav-link waves-effect" routerLink="/">Home</a>
         </li>
         <li class="nav-item">
-          <a  class="nav-link waves-effect" routerLink="/table">Table</a>
+          <a class="nav-link waves-effect" routerLink="/table">Table</a>
         </li>
         <li class="nav-item">
-          <a  class="nav-link waves-effect" routerLink="/login">Sign in</a>
+          <a class="nav-link waves-effect" routerLink="/admin">Admin</a>
         </li>
-        <li class="nav-item">
-          <a  class="nav-link waves-effect" routerLink="/logout">Logout</a>
-        </li>
-        <li class="nav-item">
-          <a  class="nav-link waves-effect" routerLink="/admin">Admin</a>
-        </li>
+        <ng-container *ngIf="isAuthenthicated; then loggedIn; else loggedOut">
+        </ng-container>
       </ul>
       <ul class="navbar-nav nav-flex-icons">
         <li class="nav-item">
@@ -46,3 +48,14 @@
     </div>
   </div>
 </div>
+
+<ng-template #loggedIn>
+  <li class="nav-item">
+    <a class="nav-link waves-effect" routerLink="/logout">Logout</a>
+  </li>
+</ng-template>
+<ng-template #loggedOut>
+  <li class="nav-item">
+    <a class="nav-link waves-effect" routerLink="/login">Sign in</a>
+  </li>
+</ng-template>
