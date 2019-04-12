@@ -11,6 +11,12 @@ export class OrderService {
 
   constructor(private http: HttpClient) { }
 
+  acceptOrder(id){
+    return this
+    .http
+    .get(`${this.uri}/orders`);
+  }
+
   deleteOrder(id) {
     return this
       .http

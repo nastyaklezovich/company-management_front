@@ -24,14 +24,11 @@ import { DevelopmentComponent } from "./content/services/development/development
 import { AnaliticsComponent } from "./content/services/analitics/analitics.component";
 import { TechnologiesComponent } from "./content/services/technologies/technologies.component";
 import { ContactsComponent } from "./content/contacts/contacts.component";
-import { GetdataComponent } from "./getdata/getdata.component";
-import { EditdataComponent } from "./getdata/editdata/editdata.component";
 import { BAComponent } from "./ba/ba.component";
 import { AdminComponent } from "./admin/admin.component";
 import { CustomerComponent } from "./customer/customer.component";
 import { LoginComponent } from "./login/login.component";
 import { ProjectsComponent } from "./ba/projects/projects.component";
-import { RequestsComponent } from "./ba/requests/requests.component";
 import { WorkWithWorkersComponent } from "./admin/work-with-workers/work-with-workers.component";
 import { WorkWithDepartementComponent } from "./admin/work-with-departement/work-with-departement.component";
 import { DepartementsFormComponent } from "./admin/work-with-departement/departements-table/departements-form/departements-form.component";
@@ -43,11 +40,12 @@ import { DepartementsEditComponent } from "./admin/work-with-departement/departe
 import { UsersEditComponent } from "./admin/work-with-workers/workers-table/users-edit/users-edit.component";
 
 import { CoreModule, AuthGuard, RoleType } from "./core";
+import { OrdersComponent } from './ba/orders/orders.component';
+import { EditProjectComponent } from './ba/projects/edit-project/edit-project.component';
+import { AddProjectComponent } from './ba/projects/add-project/add-project.component';
 
 const routes = [
   { path: "", component: ContentComponent },
-  { path: "table", component: GetdataComponent },
-  { path: "edit/:id", component: EditdataComponent },
   { path: "login", component: LoginComponent },
   { path: "services", component: ServicesComponent },
   {
@@ -80,11 +78,39 @@ const routes = [
                 component: UsersEditComponent 
               }]
           },
-          { path: "workersRequest", component: WorkersRequestsTableComponent }
+          { 
+            path: "workersRequest", 
+            component: WorkersRequestsTableComponent, 
+          }
         ]
       }
     ]
-  }
+  },
+  {
+    path: "ba", 
+    component: BAComponent,
+    children:[
+      {
+        path: "orders",
+        component: OrdersComponent,
+      },
+      {
+        path: "projects",
+        component: ProjectsComponent,
+        children:
+        [
+          {
+            path:"editProject/:id",
+            component: EditProjectComponent,
+          },
+          {
+            path: "addProject",
+            component: AddProjectComponent,
+          }
+        ]
+      }
+    ]
+  },
 ];
 
 @NgModule({
@@ -102,14 +128,11 @@ const routes = [
     AnaliticsComponent,
     TechnologiesComponent,
     ContactsComponent,
-    GetdataComponent,
-    EditdataComponent,
     BAComponent,
     AdminComponent,
     CustomerComponent,
     LoginComponent,
     ProjectsComponent,
-    RequestsComponent,
     WorkWithWorkersComponent,
     WorkWithDepartementComponent,
     DepartementsFormComponent,
@@ -117,7 +140,10 @@ const routes = [
     WorkersTableComponent,
     WorkersRequestsTableComponent,
     DepartementsEditComponent,
-    UsersEditComponent
+    UsersEditComponent,
+    OrdersComponent,
+    EditProjectComponent,
+    AddProjectComponent
   ],
   imports: [
     CoreModule,

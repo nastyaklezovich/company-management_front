@@ -1,7 +1,8 @@
 export default class form {
     person_name: String;
+    company_name: String;
     email: String;
-    number: String;
-    order: String;
+    phone_number: String;
+    order_description: String;
     id: String;
   }
