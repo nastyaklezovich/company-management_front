@@ -35,23 +35,26 @@ export class ProjectService {
       .get(`${this.uri}/projects`);
   };
 
-  // editOrder(id) {
-  //   return this.http.get(`${this.uri}/order/${id}`);
-  // }
+  editProject(id) {
+    return this.http.get(`${this.uri}/project/${id}`);
+  }
 
-  // updateOrder(person_name, email, number, order, id) {
-  //   const obj = {
-  //     person_name: person_name,
-  //     email: email,
-  //     number: number,
-  //     order: order
-  //   };
+  updateProject(project_name, customer_name, start_time, completion_time, project_manager, project_description, project_status, id) {
+    const obj = {
+      project_name: project_name,
+      customer_name: customer_name,
+      start_time: start_time,
+      completion_time: completion_time,
+      project_manager: project_manager,
+      project_description: project_description,
+      project_status: project_status
+    };
 
-  //   this
-  //     .http
-  //     .put(`${this.uri}/order/${id}`, obj)
-  //     .subscribe(res => console.log('Done'));
-  // }
+    this
+      .http
+      .put(`${this.uri}/project/${id}`, obj)
+      .subscribe(res => console.log('Done'));
+  }
 
   addProject(project_name, customer_name, start_time, completion_time, project_manager, project_description, project_status) {
     const obj = {
