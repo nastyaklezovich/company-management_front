@@ -1,3 +1,118 @@
-<p>
-  add-project works!
-</p>
+<div class="container">
+  <h2 class="text-center">Добавление проекта</h2>
+  <form [formGroup]="projectForm" role="form" class="form-group" novalidate>
+
+    <div class="form-group">
+      <label class="control-label" for="project_name">Название проекта</label>
+      <input formControlName="project_name" class="form-control project_name" type="text" #project_name>
+    </div>
+    <div
+      *ngIf="projectForm.controls['project_name'].invalid && (projectForm.controls['project_name'].dirty || projectForm.controls['project_name'].touched)"
+      class="alert alert-danger">
+      <div *ngIf="projectForm.controls['project_name'].errors.required">
+        Заполните данное поле!
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label" for="customer_name">Организация-заказчик</label>
+      <select class="form-control" name="customer_name" id="customer_name" [(ngModel)]="customer_name"
+        [ngModelOptions]="{standalone: true}">
+        <option *ngFor="let order of orders" [value]="order.person_name">
+          {{order.person_name}}
+        </option>
+      </select>
+      selected value is {{customer_name}}
+    </div>
+    <div
+      *ngIf="projectForm.controls['customer_name'].invalid && (projectForm.controls['customer_name'].dirty || projectForm.controls['customer_name'].touched)"
+      class="alert alert-danger">
+      <div *ngIf="projectForm.controls['customer_name'].errors.required">
+        Заполните данное поле!
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label" for="start_time">Время начала выполнения</label>
+      <input formControlName="start_time" class="form-control start_time" type="date" #start_time />
+    </div>
+    <div
+      *ngIf="projectForm.controls['start_time'].invalid && (projectForm.controls['start_time'].dirty || projectForm.controls['start_time'].touched)"
+      class="alert alert-danger">
+      <div *ngIf="projectForm.controls['start_time'].errors.required">
+        Заполните данное поле!
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label" for="completion_time">Время окончания выполнения</label>
+
+      <input formControlName="completion_time" class="form-control completion_time" type="date" #completion_time />
+    </div>
+    <div
+      *ngIf="projectForm.controls['completion_time'].invalid && (projectForm.controls['completion_time'].dirty || projectForm.controls['completion_time'].touched)"
+      class="alert alert-danger">
+      <div *ngIf="projectForm.controls['completion_time'].errors.required">
+        Заполните данное поле!
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label" for="project_manager">Менеджер</label>
+      <select class="form-control" name="project_manager" id="project_manager" [(ngModel)]="project_manager"
+        [ngModelOptions]="{standalone: true}">
+        <option *ngFor="let manager of managers" [value]="manager.name">
+          {{manager.name}}
+        </option>
+      </select>
+    </div>
+    <div
+      *ngIf="projectForm.controls['project_manager'].invalid && (projectForm.controls['project_manager'].dirty || projectForm.controls['project_manager'].touched)"
+      class="alert alert-danger">
+      <div *ngIf="projectForm.controls['project_manager'].errors.required">
+        Заполните данное поле!
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label" for="project_description">Описание проекта</label>
+      <input formControlName="project_description" class="form-control project_description" type="text"
+        #project_description />
+    </div>
+    <div
+      *ngIf="projectForm.controls['project_description'].invalid && (projectForm.controls['project_description'].dirty || projectForm.controls['project_description'].touched)"
+      class="alert alert-danger">
+      <div *ngIf="projectForm.controls['project_description'].errors.required">
+        Заполните данное поле!
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label" for="project_status">Cтадия разработки проекта</label>
+      <select formControlName="project_status" class="form-control project_status" type="date" #project_status>
+        <option value="Принят">Принят</option>
+        <option value="В разработке">В разработке</option>
+        <option value="Завершен">Завершен</option>
+      </select>
+    </div>
+    <div
+      *ngIf="projectForm.controls['project_status'].invalid && (projectForm.controls['project_status'].dirty || projectForm.controls['project_status'].touched)"
+      class="alert alert-danger">
+      <div *ngIf="projectForm.controls['project_status'].errors.required">
+        Заполните данное поле!
+      </div>
+    </div>
+
+
+
+  </form>
+  <div class="form-group justify-content-center align-items-center text-center">
+    <button
+      (click)="addProject(project_name.value, customer_name, start_time.value, completion_time.value, project_manager, project_description.value, project_status.value)"
+      class="btn btn-primary">
+      Добавить
+    </button> </div>
+  <!-- <button
+    (click)="addProject(project_name.value, customer_name.value, start_time.value, completion_time.value, project_manager.value, project_status.value)"
+    [disabled]="depForm.invalid" class="btn btn-primary">Добавить</button> -->
+</div>

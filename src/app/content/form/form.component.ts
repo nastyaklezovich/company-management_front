@@ -17,15 +17,15 @@ export class FormComponent implements OnInit {
 
   createForm() {
     this.angForm = this.fb.group({
-      person_name: ['', Validators.required],
+      company_name: ['', Validators.required],
       email: ['', Validators.required],
       number:['', Validators.required],
       order: ['', Validators.required]
     })
   }
 
-  addOrder(person_name, email, number, order){
-    this.os.addOrder(person_name, email, number, order);
+  addOrder(company_name, email, number, order){
+    this.os.addOrder(company_name, email, number, order);
   }
 
   ngOnInit() {

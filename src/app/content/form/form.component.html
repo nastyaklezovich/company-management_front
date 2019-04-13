@@ -5,13 +5,13 @@
     <form [formGroup]="angForm" role="form" class="form-group">
       <div class="form-row">
         <div class="form-group col-md-4">
-          <label class=" control-label" for="input-name">ИМЯ: <span>*</span></label>
-          <input formControlName="person_name" class="form-control input-name" type="text" #person_name>
+          <label class=" control-label" for="company_name">ИМЯ: <span>*</span></label>
+          <input formControlName="company_name" class="form-control company_name" type="text" #company_name>
         </div>
         <div
-          *ngIf="angForm.controls['person_name'].invalid && (angForm.controls['person_name'].dirty || angForm.controls['person_name'].touched)"
+          *ngIf="angForm.controls['company_name'].invalid && (angForm.controls['company_name'].dirty || angForm.controls['company_name'].touched)"
           class="alert alert-danger">
-          <div *ngIf="angForm.controls['person_name'].errors.required">
+          <div *ngIf="angForm.controls['company_name'].errors.required">
             Заполните данное поле!
           </div>
         </div>
@@ -51,10 +51,9 @@
       </div>
       <br>
       <div class="form-group justify-content-center align-items-center text-center">
-        <button (click)="addOrder(person_name.value, email.value, number.value, order.value)" class="btn btn-primary">
+        <button (click)="addOrder(company_name.value, email.value, number.value, order.value)" class="btn btn-primary">
           Отправить заявку
         </button> </div>
-
     </form>
   </div>
 </div>

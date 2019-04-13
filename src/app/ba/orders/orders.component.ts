@@ -21,7 +21,10 @@ export class OrdersComponent implements OnInit {
   }
 
   rejectOrder(id){
-
+    this.os.rejectOrder(id).subscribe(res=>{
+      console.log(id);
+      console.log('Order rejected')
+    })
   }
 
   ngOnInit() {
