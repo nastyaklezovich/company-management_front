@@ -4,14 +4,8 @@
       <img src="../../assets/resources/logo.png" alt="logo" width="45px" />
       <strong>POULAILLER</strong>
     </a>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-toggle="collapse"
-      data-target="#navContent"
-      aria-controls="navContent"
-      aria-expanded="false"
-    >
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navContent"
+      aria-controls="navContent" aria-expanded="false">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div id="navContent" class="collapse navbar-collapse">
@@ -27,6 +21,9 @@
         </li>
         <li class="nav-item">
           <a class="nav-link waves-effect" routerLink="/ba">BA</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link waves-effect" routerLink="/customer">Customer</a>
         </li>
         <ng-container *ngIf="isAuthenthicated; then loggedIn; else loggedOut">
         </ng-container>

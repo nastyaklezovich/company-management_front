@@ -43,6 +43,7 @@ import { CoreModule, AuthGuard, RoleType } from "./core";
 import { OrdersComponent } from './ba/orders/orders.component';
 import { EditProjectComponent } from './ba/projects/edit-project/edit-project.component';
 import { AddProjectComponent } from './ba/projects/add-project/add-project.component';
+import { UserOrdersComponent } from './customer/user-orders/user-orders.component';
 
 const routes = [
   { path: "", component: ContentComponent },
@@ -111,6 +112,17 @@ const routes = [
       }
     ]
   },
+  {
+    path:"customer",
+    component:CustomerComponent,
+    children:
+    [
+      {
+        path:"customerOrders",
+        component:UserOrdersComponent,
+      }
+    ]
+  }
 ];
 
 @NgModule({
@@ -143,7 +155,8 @@ const routes = [
     UsersEditComponent,
     OrdersComponent,
     EditProjectComponent,
-    AddProjectComponent
+    AddProjectComponent,
+    UserOrdersComponent
   ],
   imports: [
     CoreModule,

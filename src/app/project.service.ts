@@ -11,17 +11,17 @@ export class ProjectService {
 
   constructor(private http: HttpClient) { }
 
-  acceptOrder(id) {
-    return this
-      .http
-      .put(`${this.uri}/orders`, 'accepted');
-  }
+  // acceptOrder(id) {
+  //   return this
+  //     .http
+  //     .put(`${this.uri}/orders`, 'accepted');
+  // }
 
-  rejectOrder(id) {
-    return this
-      .http
-      .put(`${this.uri}/orders`, 'rejected');
-  }
+  // rejectOrder(id) {
+  //   return this
+  //     .http
+  //     .put(`${this.uri}/orders`, 'rejected');
+  // }
 
   deleteProject(id) {
     return this
