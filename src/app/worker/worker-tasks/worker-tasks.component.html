@@ -6,7 +6,7 @@
         <input class="form-control" type="text" placeholder="Поиск" [(ngModel)]="name">
       </div>
     </div> -->
-<router-outlet></router-outlet>
+  <router-outlet></router-outlet>
 
   <table class="table table-hover">
     <thead class="thead-light">
@@ -16,6 +16,7 @@
         <th>Дата окончания выполнения</th>
         <th>Описание задания</th>
         <th>Статус</th>
+        <th>Редактировать</th>
       </tr>
     </thead>
 
@@ -25,7 +26,9 @@
         <td>{{ task.start_time }}</td>
         <td>{{ task.completion_time }}</td>
         <td>{{ task.project_descrition }}</td>
-        <td><a [routerLink]="['/worker/workerTasks/editStatusTask', task.id]">{{ task.task_status }}</a></td>
+        <td>{{task.task_status}}</td>
+        <td><a [routerLink]="['/worker/workerTasks/editStatusTask', task.id]"><span
+              class="fa fa-pencil-square-o fa-2x"></span></a></td>
       </tr>
     </tbody>
   </table>
