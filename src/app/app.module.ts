@@ -50,11 +50,49 @@ import { WorkerProjectsComponent } from './worker/worker-projects/worker-project
 import { WorkerTasksComponent } from './worker/worker-tasks/worker-tasks.component';
 import { WorkerTeamComponent } from './worker/worker-team/worker-team.component';
 import { EditTaskStatusComponent } from './worker/worker-tasks/edit-task-status/edit-task-status.component';
+import { PmComponent } from './pm/pm.component';
+import { TeamComponent } from './pm/team/team.component';
+import { ProjectComponent } from './pm/project/project.component';
+import { TaskComponent } from './pm/task/task.component';
+import { RecommendationComponent } from './pm/recommendation/recommendation.component';
 
 const routes = [
-  { path: "", component: ContentComponent },
-  { path: "login", component: LoginComponent },
-  { path: "services", component: ServicesComponent },
+  {
+    path: "",
+    component: ContentComponent
+  },
+  {
+    path: "login",
+    component: LoginComponent
+  },
+  { 
+    path: "services", 
+    component: ServicesComponent 
+  },
+  {
+    path: "pm", 
+    component: PmComponent,
+    children:[
+      {
+        path:"pmTeam",
+        component: TeamComponent,
+      },
+      {
+        path:"pmProject",
+        component: ProjectComponent,
+      },
+      {
+        path:"pmTasks",
+        component:TaskComponent,
+      },
+      {
+        path:"pmRecomendation",
+        component:RecommendationComponent,
+      }
+
+    ]
+
+  },
   {
     path: "admin",
     component: AdminComponent,
@@ -80,23 +118,23 @@ const routes = [
             path: "workersTable",
             component: WorkersTableComponent,
             children: [
-              { 
-                path: "editUser/:id", 
-                component: UsersEditComponent 
+              {
+                path: "editUser/:id",
+                component: UsersEditComponent
               }]
           },
-          { 
-            path: "workersRequest", 
-            component: WorkersRequestsTableComponent, 
+          {
+            path: "workersRequest",
+            component: WorkersRequestsTableComponent,
           }
         ]
       }
     ]
   },
   {
-    path: "ba", 
+    path: "ba",
     component: BAComponent,
-    children:[
+    children: [
       {
         path: "orders",
         component: OrdersComponent,
@@ -105,59 +143,59 @@ const routes = [
         path: "projects",
         component: ProjectsComponent,
         children:
-        [
-          {
-            path:"editProject/:id",
-            component: EditProjectComponent,
-          },
-          {
-            path: "addProject",
-            component: AddProjectComponent,
-          }
-        ]
+          [
+            {
+              path: "editProject/:id",
+              component: EditProjectComponent,
+            },
+            {
+              path: "addProject",
+              component: AddProjectComponent,
+            }
+          ]
       }
     ]
   },
   {
-    path:"customer",
-    component:CustomerComponent,
+    path: "customer",
+    component: CustomerComponent,
     children:
-    [
-      {
-        path:"customerOrders",
-        component:UserOrdersComponent,
-      }
-    ]
+      [
+        {
+          path: "customerOrders",
+          component: UserOrdersComponent,
+        }
+      ]
   },
   {
-    path:"worker",
-    component:WorkerComponent,
+    path: "worker",
+    component: WorkerComponent,
     children:
-    [
-      {
-        path:"messages",
-        component: MessagesComponent,
-      },
-      {
-        path:"workerProjects",
-        component:WorkerProjectsComponent,
-      },
-      {
-        path:"workerTasks",
-        component: WorkerTasksComponent,
-        children: 
-        [
-          {
-            path:"editStatusTask",
-            component: EditTaskStatusComponent,
-          }
-        ]
-      },
-      {
-        path:"workerTeam",
-        component: WorkerTeamComponent,
-      }
-    ]
+      [
+        {
+          path: "messages",
+          component: MessagesComponent,
+        },
+        {
+          path: "workerProjects",
+          component: WorkerProjectsComponent,
+        },
+        {
+          path: "workerTasks",
+          component: WorkerTasksComponent,
+          children:
+            [
+              {
+                path: "editStatusTask",
+                component: EditTaskStatusComponent,
+              }
+            ]
+        },
+        {
+          path: "workerTeam",
+          component: WorkerTeamComponent,
+        }
+      ]
   }
 ];
 
@@ -196,9 +234,14 @@ const routes = [
     WorkerComponent,
     MessagesComponent,
     WorkerProjectsComponent,
-    WorkerTasksComponent, 
+    WorkerTasksComponent,
     WorkerTeamComponent,
-    EditTaskStatusComponent
+    EditTaskStatusComponent,
+    PmComponent,
+    TeamComponent,
+    ProjectComponent,
+    TaskComponent,
+    RecommendationComponent
   ],
   imports: [
     CoreModule,
@@ -219,4 +262,4 @@ const routes = [
   providers: [OrderService, DepartmentService],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

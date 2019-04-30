@@ -19,7 +19,7 @@
       <select class="form-control" name="customer_name" id="customer_name" [(ngModel)]="customer_name"
         [ngModelOptions]="{standalone: true}">
         <option *ngFor="let order of orders" [value]="order.person_name">
-          {{order.person_name}}
+          {{order.company_name}}
         </option>
       </select>
       selected value is {{customer_name}}
