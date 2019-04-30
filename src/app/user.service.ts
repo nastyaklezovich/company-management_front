@@ -23,6 +23,12 @@ export class UserService {
       .get(`${this.uri}/users`);
   };
 
+  getManager() {
+    return this
+      .http
+      .post(`${this.uri}/users`, "manager");
+  };
+
   editUser(id) {
     return this.http.get(`${this.uri}/user/${id}`);
   }

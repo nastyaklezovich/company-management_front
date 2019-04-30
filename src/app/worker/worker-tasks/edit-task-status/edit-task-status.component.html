@@ -1,0 +1,30 @@
+<div class="container">
+  <form [formGroup]="statusForm" role="form" class="form-group" novalidate>
+
+    <div class="form-group">
+      <label class="control-label" for="task_status">Cтадия разработки проекта</label>
+      <select formControlName="task_status" class="form-control task_status" type="date" #task_status [(ngModel)]="res.task_status" [value]="res.task_status">
+        <option value="Принят">Принят</option>
+        <option value="В разработке">В разработке</option>
+        <option value="Завершен">Завершен</option>
+      </select>
+    </div>
+    <div
+      *ngIf="statusForm.controls['task_status'].invalid && (statusForm.controls['task_status'].dirty || statusForm.controls['task_status'].touched)"
+      class="alert alert-danger">
+      <div *ngIf="statusForm.controls['task_status'].errors.required">
+        Заполните данное поле!
+      </div>
+    </div>
+  </form>
+
+  <div class="form-group justify-content-center align-items-center text-center">
+    <button
+      (click)="updateStatus(task_status.value)"
+      class="btn btn-primary">
+      Обновить
+    </button> </div>
+  <!-- <button
+    (click)="addProject(project_name.value, customer_name.value, start_time.value, completion_time.value, project_manager.value, project_status.value)"
+    [disabled]="depForm.invalid" class="btn btn-primary">Добавить</button> -->
+</div>

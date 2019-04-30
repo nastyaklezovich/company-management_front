@@ -44,6 +44,12 @@ import { OrdersComponent } from './ba/orders/orders.component';
 import { EditProjectComponent } from './ba/projects/edit-project/edit-project.component';
 import { AddProjectComponent } from './ba/projects/add-project/add-project.component';
 import { UserOrdersComponent } from './customer/user-orders/user-orders.component';
+import { WorkerComponent } from './worker/worker.component';
+import { MessagesComponent } from './worker/messages/messages.component';
+import { WorkerProjectsComponent } from './worker/worker-projects/worker-projects.component';
+import { WorkerTasksComponent } from './worker/worker-tasks/worker-tasks.component';
+import { WorkerTeamComponent } from './worker/worker-team/worker-team.component';
+import { EditTaskStatusComponent } from './worker/worker-tasks/edit-task-status/edit-task-status.component';
 
 const routes = [
   { path: "", component: ContentComponent },
@@ -122,6 +128,36 @@ const routes = [
         component:UserOrdersComponent,
       }
     ]
+  },
+  {
+    path:"worker",
+    component:WorkerComponent,
+    children:
+    [
+      {
+        path:"messages",
+        component: MessagesComponent,
+      },
+      {
+        path:"workerProjects",
+        component:WorkerProjectsComponent,
+      },
+      {
+        path:"workerTasks",
+        component: WorkerTasksComponent,
+        children: 
+        [
+          {
+            path:"editStatusTask",
+            component: EditTaskStatusComponent,
+          }
+        ]
+      },
+      {
+        path:"workerTeam",
+        component: WorkerTeamComponent,
+      }
+    ]
   }
 ];
 
@@ -156,7 +192,13 @@ const routes = [
     OrdersComponent,
     EditProjectComponent,
     AddProjectComponent,
-    UserOrdersComponent
+    UserOrdersComponent,
+    WorkerComponent,
+    MessagesComponent,
+    WorkerProjectsComponent,
+    WorkerTasksComponent, 
+    WorkerTeamComponent,
+    EditTaskStatusComponent
   ],
   imports: [
     CoreModule,

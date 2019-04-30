@@ -6,6 +6,8 @@ import {ProjectService} from '../../../project.service'
   import { from } from 'rxjs';
 import { OrderService } from 'src/app/order.service';
 import Manager from '../../../Manager'
+import User from '../../../User'
+import {UserService} from '../../../user.service'
 
 @Component({
   selector: 'app-add-project',
@@ -14,15 +16,17 @@ import Manager from '../../../Manager'
 })
 export class AddProjectComponent implements OnInit {
   
-  managers: Manager[];
+  users: User[];
+
+  // managers: Manager[];
 
   orders: Order[];
 
-  name: String;
+  // name: String;
 
   projectForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private ps: ProjectService, private os: OrderService) {
+  constructor(private us: UserService, private fb: FormBuilder, private ps: ProjectService, private os: OrderService) {
     this.createForm();
   }
   
@@ -47,14 +51,20 @@ export class AddProjectComponent implements OnInit {
       console.log(data);
       this.orders = data;
     });
-    this.managers=
-    [
-      {name:"1", id:"1"},
-      {name:"2", id:"2"},
-      {name:"3", id:"3"}
-    ];
-    console.log(this.managers);
-    this.name="";
+
+    this.us.getManager().subscribe((data: User[])=>{
+      console.log(data);
+      this.users = data;
+    })
+
+    // this.managers=
+    // [
+    //   {name:"1", id:"1"},
+    //   {name:"2", id:"2"},
+    //   {name:"3", id:"3"}
+    // ];
+    // console.log(this.managers);
+    // this.name="";
   }
 
 }
