@@ -35,6 +35,10 @@ export class ProjectService {
       .get(`${this.uri}/projects`);
   };
 
+  getPmProjects(){
+    return this.http.get(`${this.uri}/projects`);
+  }
+
   editProject(id) {
     return this.http.get(`${this.uri}/project/${id}`);
   }

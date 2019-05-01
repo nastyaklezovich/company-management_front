@@ -55,6 +55,8 @@ import { TeamComponent } from './pm/team/team.component';
 import { ProjectComponent } from './pm/project/project.component';
 import { TaskComponent } from './pm/task/task.component';
 import { RecommendationComponent } from './pm/recommendation/recommendation.component';
+import { AddTaskComponent } from './pm/task/add-task/add-task.component';
+import { EditTaskComponent } from './pm/task/edit-task/edit-task.component';
 
 const routes = [
   {
@@ -84,6 +86,12 @@ const routes = [
       {
         path:"pmTasks",
         component:TaskComponent,
+        children:[
+          {
+            path:"addTask",
+            component: AddTaskComponent,
+          }
+        ]
       },
       {
         path:"pmRecomendation",
@@ -241,7 +249,9 @@ const routes = [
     TeamComponent,
     ProjectComponent,
     TaskComponent,
-    RecommendationComponent
+    RecommendationComponent,
+    AddTaskComponent,
+    EditTaskComponent
   ],
   imports: [
     CoreModule,

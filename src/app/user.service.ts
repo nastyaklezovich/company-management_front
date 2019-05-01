@@ -29,6 +29,11 @@ export class UserService {
       .post(`${this.uri}/users`, "manager");
   };
 
+  getWorker(){
+    return this
+    .http
+    .post(`${this.uri}/users`, "worker")
+  }
   editUser(id) {
     return this.http.get(`${this.uri}/user/${id}`);
   }

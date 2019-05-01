@@ -23,11 +23,11 @@ export class TaskService {
   //     .put(`${this.uri}/orders`, 'rejected');
   // }
 
-//   deleteProject(id) {
-//     return this
-//       .http
-//       .delete(`${this.uri}/project/${id}`);
-//   }
+  //   deleteProject(id) {
+  //     return this
+  //       .http
+  //       .delete(`${this.uri}/project/${id}`);
+  //   }
 
   getTasks() {
     return this
@@ -50,20 +50,20 @@ export class TaskService {
       .subscribe(res => console.log('Done'));
   }
 
-//   addProject(project_name, customer_name, start_time, completion_time, project_manager, project_description, project_status) {
-//     const obj = {
-//       project_name: project_name,
-//       customer_name: customer_name,
-//       start_time: start_time,
-//       completion_time: completion_time,
-//       project_manager: project_manager,
-//       project_description: project_description,
-//       project_status: project_status
-//     };
+  addTask(project_name, task_name, start_time, completion_time, task_worker, task_description, task_status) {
+    const obj = {
+      project_name: project_name,
+      task_name: task_name,
+      start_time: start_time,
+      completion_time: completion_time,
+      task_worker: task_worker,
+      task_description: task_description,
+      task_status: task_status
+    };
 
-//     console.log(obj);
+    console.log(obj);
 
-//     this.http.post(`${this.uri}/project`, obj)
-//       .subscribe(res => { console.log('Done'); });
-//   }
+    this.http.post(`${this.uri}/task`, obj)
+      .subscribe(res => { console.log('Done'); });
+  }
 }

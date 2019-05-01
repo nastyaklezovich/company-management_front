@@ -1,3 +1,49 @@
 <p>
   task works!
 </p>
+<div class="container">
+  <h1 class="text-center">Задания</h1>
+
+  <div>
+    <a routerLink="/pm/pmTasks/addTask"><span class="fa fa-plus-square"></span>Добавить</a>
+  </div>
+  <!-- <div class="row ">
+    <div class="col-sm-4">
+      <input class="form-control" type="text" placeholder="Поиск" [(ngModel)]="name">
+    </div>
+  </div> -->
+
+  <router-outlet> </router-outlet>
+
+  <table class="table table-hover">
+    <thead class="thead-light">
+      <tr>
+        <th>Название проекта</th>
+        <th>Название задания</th>
+        <th>Дата начала выполнения</th>
+        <th>Дата окончания выполнения</th>
+        <th>Описание задания</th>
+        <th>Исполнитель</th>
+        <th>Статус</th>
+        <th>Редактировать</th>
+        <th>Удалить</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let task of tasks|filter:name|paginate: {itemsPerPage: 10, currentPage: p}; let i=index">
+        <td>{{ task.project_name }}</td>
+        <td>{{ task.task_name }}</td>
+        <td>{{ task.start_time }}</td>
+        <td>{{ task.completion_time }}</td>
+        <td>{{ task.task_descrition }}</td>
+        <td>{{ task.task_worker }}</td>
+        <td>{{ task.task_status }}</td>
+        <!-- <td><a [routerLink]="['/ba/projects/editProject', project.id]" class="btn"><span
+              class="fa fa-pencil-square-o fa-2x"></span></a>
+        </td>
+        <td><a (click)="deleteProject(project.id)"><span class="fa fa-trash-o fa-2x"></span></a></td> -->
+      </tr>
+    </tbody>
+  </table>
+</div>

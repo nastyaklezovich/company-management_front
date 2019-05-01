@@ -1,3 +1,45 @@
 <p>
   project works!
 </p>
+<div class="container">
+  <h1 class="text-center">Мои проекты</h1>
+
+  <!-- <div class="row ">
+    <div class="col-sm-4">
+      <input class="form-control" type="text" placeholder="Поиск" [(ngModel)]="name">
+    </div>
+  </div> -->
+
+  <router-outlet> </router-outlet>
+
+  <table class="table table-hover">
+    <thead class="thead-light">
+      <tr>
+        <th>Название проекта</th>
+        <th>Компания-заказчик</th>
+        <th>Дата начала выполнения</th>
+        <th>Дата окончания выполнения</th>
+        <th>Описание проекта</th>
+        <th>Статус</th>
+        <!-- <th>Редактировать</th>
+        <th>Удалить</th> -->
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let project of projects|filter:name|paginate: {itemsPerPage: 10, currentPage: p}; let i=index">
+        <td>{{ project.project_name }}</td>
+        <td>{{ project.customer_name }}</td>
+        <td>{{ project.start_time }}</td>
+        <td>{{ project.completion_time }}</td>
+        <td>{{ project.project_descrition }}</td>
+        <td>{{ project.project_status }}</td>
+        <td>{{ project.project_status }}</td>
+        <!-- <td><a [routerLink]="['/ba/projects/editProject', project.id]" class="btn"><span
+              class="fa fa-pencil-square-o fa-2x"></span></a>
+        </td>
+        <td><a (click)="deleteProject(project.id)"><span class="fa fa-trash-o fa-2x"></span></a></td> -->
+      </tr>
+    </tbody>
+  </table>
+</div>
