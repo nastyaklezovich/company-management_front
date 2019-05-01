@@ -74,6 +74,8 @@ const routes = [
   {
     path: "pm", 
     component: PmComponent,
+    canActivate: [AuthGuard],
+    data: { roles: [RoleType.PM] },
     children:[
       {
         path:"pmTeam",
@@ -104,8 +106,8 @@ const routes = [
   {
     path: "admin",
     component: AdminComponent,
-    // canActivate: [AuthGuard],
-    // data: { roles: [RoleType.Admin] },
+    canActivate: [AuthGuard],
+    data: { roles: [RoleType.Admin] },
     children: [
       {
         path: "departements",
@@ -142,6 +144,8 @@ const routes = [
   {
     path: "ba",
     component: BAComponent,
+    canActivate: [AuthGuard],
+    data: { roles: [RoleType.BA] },
     children: [
       {
         path: "orders",
@@ -167,6 +171,8 @@ const routes = [
   {
     path: "customer",
     component: CustomerComponent,
+    canActivate: [AuthGuard],
+    data: { roles: [RoleType.User] },
     children:
       [
         {
@@ -178,6 +184,8 @@ const routes = [
   {
     path: "worker",
     component: WorkerComponent,
+    canActivate: [AuthGuard],
+    data: { roles: [RoleType.Worker] },
     children:
       [
         {
