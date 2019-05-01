@@ -18,7 +18,7 @@
       <label class="control-label" for="customer_name">Организация-заказчик</label>
       <select class="form-control" name="customer_name" id="customer_name" [(ngModel)]="customer_name"
         [ngModelOptions]="{standalone: true}">
-        <option *ngFor="let order of orders" [value]="order.person_name">
+        <option *ngFor="let order of orders" [value]="order.company_name">
           {{order.company_name}}
         </option>
       </select>
