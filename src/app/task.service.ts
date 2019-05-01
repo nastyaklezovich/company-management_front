@@ -39,6 +39,26 @@ export class TaskService {
     return this.http.get(`${this.uri}/task/${id}`);
   }
 
+  editTask(id) {
+    return this.http.get(`${this.uri}/task/${id}`);
+  }
+  updateTask(project_name, task_name, start_time, completion_time, task_worker, task_description, task_status,id){
+    const obj = {
+      project_name: project_name,
+      task_name: task_name,
+      start_time: start_time,
+      completion_time: completion_time,
+      task_worker: task_worker,
+      task_description: task_description,
+      task_status: task_status
+    };
+
+    this
+      .http
+      .put(`${this.uri}/task/${id}`, obj)
+      .subscribe(res => console.log('Done'));
+  }
+
   updateTaskStatus(task_status, id) {
     const obj = {
       task_status: task_status

@@ -1,3 +1,125 @@
 <p>
   edit-task works!
 </p>
+
+<div class="container">
+  <h2 class="text-center">Изменение задания</h2>
+  <form [formGroup]="taskForm" role="form" class="form-group" novalidate>
+
+    <div class="form-group">
+      <label class="control-label" for="project_name">Название проекта</label>
+      <select class="form-control" name="project_name" id="project_name" [(ngModel)]="project_name"
+        [value]="res.project_name" [ngModelOptions]="{standalone: true}">
+        <option *ngFor="let project of projects" [value]="project.project_name">
+          {{project.project_name}}
+        </option>
+      </select>
+    </div>
+    <div
+      *ngIf="taskForm.controls['project_name'].invalid && (taskForm.controls['project_name'].dirty || taskForm.controls['project_name'].touched)"
+      class="alert alert-danger">
+      <div *ngIf="taskForm.controls['project_name'].errors.required">
+        Заполните данное поле!
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label" for="task_name">Название задания</label>
+      <input formControlName="task_name" class="form-control task_name" type="text" #task_name
+        [(ngModel)]="res.task_name" [value]="res.task_name">
+    </div>
+    <div
+      *ngIf="taskForm.controls['task_name'].invalid && (taskForm.controls['task_name'].dirty || taskForm.controls['task_name'].touched)"
+      class="alert alert-danger">
+      <div *ngIf="taskForm.controls['task_name'].errors.required">
+        Заполните данное поле!
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label" for="start_time">Время начала выполнения</label>
+      <input formControlName="start_time" class="form-control start_time" type="date" #start_time
+        [(ngModel)]="res.start_time" [value]="res.start_time" />
+    </div>
+    <div
+      *ngIf="taskForm.controls['start_time'].invalid && (taskForm.controls['start_time'].dirty || taskForm.controls['start_time'].touched)"
+      class="alert alert-danger">
+      <div *ngIf="taskForm.controls['start_time'].errors.required">
+        Заполните данное поле!
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label" for="completion_time">Время окончания выполнения</label>
+
+      <input formControlName="completion_time" class="form-control completion_time" type="date" #completion_time
+        [(ngModel)]="res.completion_time" [value]="res.completion_time" />
+    </div>
+    <div
+      *ngIf="taskForm.controls['completion_time'].invalid && (taskForm.controls['completion_time'].dirty || taskForm.controls['completion_time'].touched)"
+      class="alert alert-danger">
+      <div *ngIf="taskForm.controls['completion_time'].errors.required">
+        Заполните данное поле!
+      </div>
+    </div>
+
+
+    <div class="form-group">
+      <label class="control-label" for="task_description">Описание задания</label>
+      <input formControlName="task_description" class="form-control task_description" type="text"
+        #task_description [(ngModel)]="res.task_description" [value]="res.task_description" />
+    </div>
+    <div
+      *ngIf="taskForm.controls['task_description'].invalid && (taskForm.controls['task_description'].dirty || taskForm.controls['task_description'].touched)"
+      class="alert alert-danger">
+      <div *ngIf="taskForm.controls['task_description'].errors.required">
+        Заполните данное поле!
+      </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label" for="task_worker">Исполнитель</label>
+        <select class="form-control" name="task_worker" id="task_worker" [(ngModel)]="task_worker"
+          [value]="res.task_worker" [ngModelOptions]="{standalone: true}">
+          <option *ngFor="let user of users" [value]="user.name">
+            {{user.name}}
+          </option>
+        </select>
+      </div>
+      <div
+        *ngIf="taskForm.controls['task_worker'].invalid && (taskForm.controls['task_worker'].dirty || taskForm.controls['task_worker'].touched)"
+        class="alert alert-danger">
+        <div *ngIf="taskForm.controls['task_worker'].errors.required">
+          Заполните данное поле!
+        </div>
+      </div>
+
+
+    <div class="form-group">
+      <label class="control-label" for="task_status">Cтадия разработки проекта</label>
+      <select formControlName="task_status" class="form-control task_status" type="date" #task_status
+        [(ngModel)]="res.task_status" [value]="res.task_status">
+        <option value="Принят">Принят</option>
+        <option value="В разработке">В разработке</option>
+        <option value="Завершен">Завершен</option>
+      </select>
+    </div>
+    <div
+      *ngIf="taskForm.controls['task_status'].invalid && (taskForm.controls['task_status'].dirty || taskForm.controls['task_status'].touched)"
+      class="alert alert-danger">
+      <div *ngIf="taskForm.controls['task_status'].errors.required">
+        Заполните данное поле!
+      </div>
+    </div>
+  </form>
+
+  <div class="form-group justify-content-center align-items-center text-center">
+    <button
+      (click)="updateTask(project_name, task_name.value, start_time.value, completion_time.value, task_worker, task_description.value, task_status.value)"
+      class="btn btn-primary">
+      Обновить
+    </button> </div>
+  <!-- <button
+    (click)="addProject(task_name.value, project_name.value, start_time.value, completion_time.value, task_worker.value, task_status.value)"
+    [disabled]="depForm.invalid" class="btn btn-primary">Добавить</button> -->
+</div>
