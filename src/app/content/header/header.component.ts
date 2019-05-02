@@ -15,6 +15,10 @@ export class HeaderComponent implements OnInit {
     this.authService.currentUser.subscribe(val => (this.currentUser = val));
   }
 
+  public logout(){
+    this.authService.logout();
+  }
+
   public get isAuthenthicated(): boolean {
     return this.currentUser !== null;
   }
