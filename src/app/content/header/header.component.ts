@@ -18,4 +18,5 @@ export class HeaderComponent implements OnInit {
   public get isAuthenthicated(): boolean {
     return this.currentUser !== null;
   }
+
 }
