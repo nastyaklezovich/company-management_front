@@ -57,6 +57,9 @@ import { TaskComponent } from './pm/task/task.component';
 import { RecommendationComponent } from './pm/recommendation/recommendation.component';
 import { AddTaskComponent } from './pm/task/add-task/add-task.component';
 import { EditTaskComponent } from './pm/task/edit-task/edit-task.component';
+import { AddRecommendationComponent } from './pm/recommendation/add-recommendation/add-recommendation.component';
+import { SendRecommendationComponent } from './pm/recommendation/send-recommendation/send-recommendation.component';
+import { ShowRecommendationComponent } from './pm/recommendation/show-recommendation/show-recommendation.component';
 
 const routes = [
   {
@@ -74,8 +77,8 @@ const routes = [
   {
     path: "pm", 
     component: PmComponent,
-    canActivate: [AuthGuard],
-    data: { roles: [RoleType.PM] },
+    // canActivate: [AuthGuard],
+    // data: { roles: [RoleType.PM] },
     children:[
       {
         path:"pmTeam",
@@ -98,6 +101,22 @@ const routes = [
       {
         path:"pmRecomendation",
         component:RecommendationComponent,
+        children:[
+          {
+            path: "showRecommendation",
+            component: ShowRecommendationComponent,
+          },
+          {
+            path:"addRecomendation",
+            component: AddRecommendationComponent,
+            children: [
+              {
+                path:"sendRecommendation",
+                component: SendRecommendationComponent
+              }
+            ]
+          }
+        ]
       }
 
     ]
@@ -259,7 +278,10 @@ const routes = [
     TaskComponent,
     RecommendationComponent,
     AddTaskComponent,
-    EditTaskComponent
+    EditTaskComponent,
+    AddRecommendationComponent,
+    SendRecommendationComponent,
+    ShowRecommendationComponent
   ],
   imports: [
     CoreModule,

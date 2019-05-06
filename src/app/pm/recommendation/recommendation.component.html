@@ -1,3 +1,22 @@
-<p>
-  recommendation works!
-</p>
+<div class="container">
+  <h1 class="text-center">Рекомендации</h1>
+
+  <!-- <div class="row ">
+    <div class="col-sm-4">
+      <input class="form-control" type="text" placeholder="Поиск" [(ngModel)]="name">
+    </div>
+  </div> -->
+  <div>
+    <a routerLink="/pm/pmRecomendation/addRecomendation"><span class="fa fa-plus-square"></span>Добавить
+      рекомендации</a>
+  </div>
+  <div>
+    <a routerLink="/pm/pmRecomendation/showRecommendation"><span class="fa fa-plus-square"></span>Просмотреть
+      рекомендации</a>
+  </div>
+
+  <router-outlet></router-outlet>
+
+
+
+</div>

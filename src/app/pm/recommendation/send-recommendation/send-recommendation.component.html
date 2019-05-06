@@ -1,0 +1,59 @@
+<p>
+  send-recommendation works!
+</p>
+
+<div class="container">
+  <h2 class="text-center">Отправка рекомендации</h2>
+  <form [formGroup]="recomForm" role="form" class="form-group" novalidate>
+
+    <div class="form-group">
+      <label class="control-label" for="recommendation_name">Тема</label>
+      <input formControlName="recommendation_name" class="form-control recommendation_name" type="text" #recommendation_name>
+    </div>
+    <div
+      *ngIf="recomForm.controls['recommendation_name'].invalid && (recomForm.controls['recommendation_name'].dirty || recomForm.controls['recommendation_name'].touched)"
+      class="alert alert-danger">
+      <div *ngIf="recomForm.controls['recommendation_name'].errors.required">
+        Заполните данное поле!
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label" for="addressee_name">Кому:</label>
+      <input formControlName="addressee_name" class="form-control addressee_name" type="text" #addressee_name [(ngModel)]="res.full_name " [value]="res.full_name ">
+    </div>
+    <div
+      *ngIf="recomForm.controls['addressee_name'].invalid && (recomForm.controls['addressee_name'].dirty || recomForm.controls['addressee_name'].touched)"
+      class="alert alert-danger">
+      <div *ngIf="recomForm.controls['addressee_name'].errors.required">
+        Заполните данное поле!
+      </div>
+    </div>
+
+
+
+    <div class="form-group">
+      <label class="control-label" for="recommendation_description">Описание проекта</label>
+      <input formControlName="recommendation_description" class="form-control recommendation_description" type="text"
+        #recommendation_description />
+    </div>
+    <div
+      *ngIf="recomForm.controls['recommendation_description'].invalid && (recomForm.controls['recommendation_description'].dirty || recomForm.controls['recommendation_description'].touched)"
+      class="alert alert-danger">
+      <div *ngIf="recomForm.controls['recommendation_description'].errors.required">
+        Заполните данное поле!
+      </div>
+    </div>
+
+  </form>
+
+  <div class="form-group justify-content-center align-items-center text-center">
+    <button
+      (click)="updateProject(recommendation_name.value, addressee_name, start_time.value, completion_time.value, project_manager, recommendation_description.value, project_status.value)"
+      class="btn btn-primary">
+      Отправить
+    </button> </div>
+  <!-- <button
+    (click)="addProject(recommendation_name.value, addressee_name.value, start_time.value, completion_time.value, project_manager.value, project_status.value)"
+    [disabled]="depForm.invalid" class="btn btn-primary">Добавить</button> -->
+</div>

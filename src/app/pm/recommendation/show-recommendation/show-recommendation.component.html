@@ -1,0 +1,24 @@
+<div class="container">
+  <p>
+    show-recommendation works!
+  </p>
+  <table class="table table-hover">
+    <thead class="thead-light">
+      <tr>
+        <th>Тема</th>
+        <th>Время отправки</th>
+        <th>Получатель</th>
+        <th>Описание рекомендации</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let recommendation of recommendations">
+        <td>{{ recommendation.recommendation_name }}</td>
+        <td>{{ recommendation.sending_time}}</td>
+        <td>{{ recommendation.addressee_name }}</td>
+        <td>{{ recommendation.recommendation_description }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <hr>
+</div>

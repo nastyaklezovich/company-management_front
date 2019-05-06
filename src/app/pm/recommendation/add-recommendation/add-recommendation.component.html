@@ -1,0 +1,34 @@
+<p>
+  add-recommendation works!
+</p>
+<div class="container">
+  <h1 class="text-center">Отправка рекомендации</h1>
+
+  <table class="table table-hover">
+    <thead class="thead-light">
+      <tr>
+        <th>ФИО</th>
+        <th>Роль</th>
+        <th>E-mail</th>
+        <th>Номер телефона</th>
+        <th>Должность</th>
+        <th>Отправить</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="let user of users">
+        <td>{{ user.full_name }}</td>
+        <td>{{ user.role}}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.phone_number }}</td>
+        <td>{{ user.position }}</td>
+                path:"sendRecommendation",
+        <td><a [routerLink]="['./sendRecommendation', user.id]" class="btn"><span class="fa fa-pencil-square-o fa-2x"></span></a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <hr>
+  <router-outlet></router-outlet>
+</div>
