@@ -60,6 +60,7 @@ import { EditTaskComponent } from './pm/task/edit-task/edit-task.component';
 import { AddRecommendationComponent } from './pm/recommendation/add-recommendation/add-recommendation.component';
 import { SendRecommendationComponent } from './pm/recommendation/send-recommendation/send-recommendation.component';
 import { ShowRecommendationComponent } from './pm/recommendation/show-recommendation/show-recommendation.component';
+import { RegistrationComponent } from './login/registration/registration.component';
 
 const routes = [
   {
@@ -68,7 +69,13 @@ const routes = [
   },
   {
     path: "login",
-    component: LoginComponent
+    component: LoginComponent,
+    children:[
+      {
+        path: "registration",
+        component: RegistrationComponent
+      }
+    ]
   },
   { 
     path: "services", 
@@ -281,7 +288,9 @@ const routes = [
     EditTaskComponent,
     AddRecommendationComponent,
     SendRecommendationComponent,
-    ShowRecommendationComponent
+    ShowRecommendationComponent,
+    RegistrationComponent,
+
   ],
   imports: [
     CoreModule,

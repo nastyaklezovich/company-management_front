@@ -17,6 +17,20 @@ export class UserService {
       .delete(`${this.uri}/user/${id}`);
   }
 
+  addUser(full_name, email, number, position, dob) {
+    const obj = {
+      full_name: full_name,
+      email: email,
+      number: number,
+      position: position,
+      dob: dob
+    }
+    console.log(obj)
+    this.http.post(`${this.uri}/user`, obj)
+      .subscribe(res => { console.log('Done'); });
+
+  }
+
   getUser() {
     return this
       .http
@@ -29,16 +43,16 @@ export class UserService {
       .post(`${this.uri}/users`, "manager");
   };
 
-  getWorker(){
+  getWorker() {
     return this
-    .http
-    .post(`${this.uri}/users`, "worker")
+      .http
+      .post(`${this.uri}/users`, "worker")
   }
   editUser(id) {
     return this.http.get(`${this.uri}/user/${id}`);
   }
 
-  updateUser(full_name, role, email,phone_number, position, dob, id) {
+  updateUser(full_name, role, email, phone_number, position, dob, id) {
     const obj = {
       full_name: full_name,
       role: role,
@@ -47,7 +61,7 @@ export class UserService {
       position: position,
       dob: dob,
     };
-    
+
     this
       .http
       .put(`${this.uri}/user/${id}`, obj)
