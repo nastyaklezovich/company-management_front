@@ -63,6 +63,8 @@ import { ShowRecommendationComponent } from './pm/recommendation/show-recommenda
 import { RegistrationComponent } from './login/registration/registration.component';
 import { EditTeamComponent } from './pm/team/edit-team/edit-team.component';
 import { AddTeamComponent } from './pm/team/add-team/add-team.component';
+import { AddWorkerComponent } from './pm/team/add-worker/add-worker.component';
+import { ChoiceWorkerComponent } from './pm/team/add-worker/choice-worker/choice-worker.component';
 
 const routes = [
   {
@@ -100,6 +102,11 @@ const routes = [
           {
             path:"pmAddTeam",
             component: AddTeamComponent,
+          },
+          {
+            path:"pmAddWorker",
+            component: AddWorkerComponent,
+            
           }
         ]
       },
@@ -304,6 +311,8 @@ const routes = [
     RegistrationComponent,
     EditTeamComponent,
     AddTeamComponent,
+    AddWorkerComponent,
+    ChoiceWorkerComponent,
 
   ],
   imports: [

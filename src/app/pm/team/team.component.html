@@ -31,7 +31,8 @@
       <tr *ngFor="let team of teams">
         <td>{{ team.team_name }}</td>
         <td>{{ team.project_name }}</td>
-        <td><a [routerLink]="[ '/pm/team/pmEditTeam', team.id ]">Добавить</a></td>
+        <td><a [routerLink]="[ '/pm/team/pmEditTeam', team.id ]"><span
+          class="fa fa-pencil-square-o fa-2x"></span></a></td>
         <td><a [routerLink]="['/pm/team/pmEditTeam', team.id]" class="btn"><span
               class="fa fa-pencil-square-o fa-2x"></span></a>
         </td>

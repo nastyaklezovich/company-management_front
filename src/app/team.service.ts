@@ -11,6 +11,13 @@ export class TeamService {
 
   constructor(private http: HttpClient) { }
 
+  deleteMember(id) {
+    return this
+      .http
+      .delete(`${this.uri}/team/member/${id}`);
+  }
+
+
   addTeam(team_name, project_name){
     const obj={
       team_name: team_name,
@@ -25,6 +32,12 @@ export class TeamService {
     return this
       .http
       .delete(`${this.uri}/team/${id}`);
+  }
+
+  getMembers(id) {
+    return this
+    .http
+    .get(`${this.uri}/team/${id}`);
   }
 
   getTeam() {
