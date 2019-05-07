@@ -38,6 +38,24 @@
             Email is required.
           </div>
         </div>
+
+
+
+        <div class="form-group">
+          <label class="col-md-4">phone_number</label>
+          <input type="text" class="form-control" formControlName="phone_number" #email [value]="res.phone_number"
+                 [(ngModel)]="res.phone_number" />
+        </div>
+        <div
+            *ngIf="usForm.controls['phone_number'].invalid && (usForm.controls['phone_number'].dirty || usForm.controls['phone_number'].touched)"
+            class="alert alert-danger">
+          <div *ngIf="usForm.controls['phone_number'].errors.required">
+            Email is required.
+          </div>
+        </div>
+
+
+
         <div class="form-group">
           <label class="col-md-4">Должность</label>
           <input type="text" class="form-control" formControlName="position" #position [(ngModel)]="res.position"
@@ -63,5 +81,12 @@
 
       </form>
     </div>
+    <div class="form-group justify-content-center align-items-center text-center">
+    <button
+        (click)="updateOrder(res.full_name, res.role, res.email, res.phone_number,res.position, res.dob)"
+        class="btn btn-primary">
+      Обновить
+    </button> </div>
   </div>
+
 </div>

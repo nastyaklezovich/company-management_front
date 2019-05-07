@@ -25,11 +25,11 @@ export class AuthService extends BaseService {
     return this.userSub.value;
   }
 
-  public login(username: string, password: string) {
-    return this.http.post<User>(`${this.baseUrl}/authorization`, { username, password }).pipe(
+  public login(login: string, password: string) {
+    return this.http.post<User>(`${this.baseUrl}/authorization`, { login, password }).pipe(
       map(user => {
         if (user) {
-          user.authdata = btoa(username + ":" + password);
+          user.authdata = btoa(login + ":" + password);
           localStorage.setItem("user", JSON.stringify(user));
           this.userSub.next(user);
         }
