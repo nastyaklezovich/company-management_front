@@ -61,6 +61,8 @@ import { AddRecommendationComponent } from './pm/recommendation/add-recommendati
 import { SendRecommendationComponent } from './pm/recommendation/send-recommendation/send-recommendation.component';
 import { ShowRecommendationComponent } from './pm/recommendation/show-recommendation/show-recommendation.component';
 import { RegistrationComponent } from './login/registration/registration.component';
+import { EditTeamComponent } from './pm/team/edit-team/edit-team.component';
+import { AddTeamComponent } from './pm/team/add-team/add-team.component';
 
 const routes = [
   {
@@ -90,6 +92,16 @@ const routes = [
       {
         path:"pmTeam",
         component: TeamComponent,
+        children:[
+          {
+            path:"pmEditTeam",
+            component: EditTeamComponent,
+          },
+          {
+            path:"pmAddTeam",
+            component: AddTeamComponent,
+          }
+        ]
       },
       {
         path:"pmProject",
@@ -290,6 +302,8 @@ const routes = [
     SendRecommendationComponent,
     ShowRecommendationComponent,
     RegistrationComponent,
+    EditTeamComponent,
+    AddTeamComponent,
 
   ],
   imports: [

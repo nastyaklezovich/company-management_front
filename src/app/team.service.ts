@@ -11,6 +11,16 @@ export class TeamService {
 
   constructor(private http: HttpClient) { }
 
+  addTeam(team_name, project_name){
+    const obj={
+      team_name: team_name,
+      project_name: project_name,
+    }
+    console.log(obj);
+    this.http.post(`${this.uri}/team`, obj)
+      .subscribe(res => { console.log('Done'); });
+  }
+
   deleteTeam(id) {
     return this
       .http
@@ -27,21 +37,17 @@ export class TeamService {
     return this.http.get(`${this.uri}/team/${id}`);
   }
 
-//   updateTeam(full_name, role, email,phone_number, position, dob, id) {
-//     const obj = {
-//       full_name: full_name,
-//       role: role,
-//       email: email,
-//       phone_number: phone_number,
-//       position: position,
-//       dob: dob,
-//     };
+  updateTeam(team_name, project_name, id) {
+    const obj = {
+      team_name:team_name,
+      project_name: project_name,
+    };
     
-//     this
-//       .http
-//       .put(`${this.uri}/user/${id}`, obj)
-//       .subscribe(res => console.log('Done'));
-//   }
+    this
+      .http
+      .put(`${this.uri}/team/${id}`, obj)
+      .subscribe(res => console.log('Done'));
+  }
 
 
 }

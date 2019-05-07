@@ -1,0 +1,30 @@
+<p>
+  edit-team works!
+</p>
+<div class="container">
+  <h2 class="text-center">Измененение команды</h2>
+  <form [formGroup]="teamForm" role="form" class="form-group" novalidate>
+
+    <div class="form-group">
+      <label class="control-label" for="team_name">Название проекта</label>
+      <input formControlName="team_name" class="form-control team_name" type="text" #team_name [(ngModel)]="res.team_name" [value]="res.team_name">
+    </div>
+    <div
+      *ngIf="teamForm.controls['team_name'].invalid && (teamForm.controls['team_name'].dirty || teamForm.controls['team_name'].touched)"
+      class="alert alert-danger">
+      <div *ngIf="teamForm.controls['team_name'].errors.required">
+        Заполните данное поле!
+      </div>
+    </div>
+  </form>
+
+  <div class="form-group justify-content-center align-items-center text-center">
+    <button
+      (click)="updateTeam(team_name.value, project_name)"
+      class="btn btn-primary">
+      Обновить
+    </button> </div>
+  <!-- <button
+    (click)="addProject(team_name.value, project_name.value, start_time.value, completion_time.value, project_manager.value, project_status.value)"
+    [disabled]="depForm.invalid" class="btn btn-primary">Добавить</button> -->
+</div>

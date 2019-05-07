@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import Team from '../../Team'
+import {TeamService} from '../../team.service'
 
 @Component({
   selector: 'app-team',
@@ -7,7 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TeamComponent implements OnInit {
 
-  constructor() { }
+  team: Team[];
+
+  constructor(private ts: TeamService) { }
+
+  deleteTeam(id) {
+    this.ts.deleteTeam(id).subscribe(res => {
+      console.log(id);
+      console.log('Deleted');
+    });
+  }
 
   ngOnInit() {
   }

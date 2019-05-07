@@ -1,3 +1,42 @@
 <p>
   team works!
 </p>
+
+<div class="container">
+  <h1 class="text-center">Мои команды</h1>
+
+  <!-- <div class="row ">
+    <div class="col-sm-4">
+      <input class="form-control" type="text" placeholder="Поиск" [(ngModel)]="name">
+    </div>
+  </div> -->
+
+  <a routerLink="/pm/pmTeam/pmAddTeam">Добавить команду</a>
+
+  <router-outlet> </router-outlet>
+
+  <table class="table table-hover">
+    <thead class="thead-light">
+      <tr>
+        <th>Название команды</th>
+        <th>Название проекта</th>
+        <th>Члены команды</th>
+        <th>Подробнее</th>
+        <th>Редактировать</th>
+        <th>Удалить</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let team of teams">
+        <td>{{ team.team_name }}</td>
+        <td>{{ team.project_name }}</td>
+        <td><a [routerLink]="[ '/pm/team/pmEditTeam', team.id ]">Добавить</a></td>
+        <td><a [routerLink]="['/pm/team/pmEditTeam', team.id]" class="btn"><span
+              class="fa fa-pencil-square-o fa-2x"></span></a>
+        </td>
+        <td><a (click)="deleteteam(team.id)"><span class="fa fa-trash-o fa-2x"></span></a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
