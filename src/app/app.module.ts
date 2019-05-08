@@ -117,33 +117,33 @@ const routes = [
         ]
       },
       {
-        path: "pmProject",
+        path:"pmProject",
         component: ProjectComponent,
       },
       {
-        path: "pmTasks",
-        component: TaskComponent,
-        children: [
+        path:"pmTasks",
+        component:TaskComponent,
+        children:[
           {
-            path: "addTask",
+            path:"addTask",
             component: AddTaskComponent,
           }
         ]
       },
       {
-        path: "pmRecomendation",
-        component: RecommendationComponent,
-        children: [
+        path:"pmRecomendation",
+        component:RecommendationComponent,
+        children:[
           {
             path: "showRecommendation",
             component: ShowRecommendationComponent,
           },
           {
-            path: "addRecomendation",
+            path:"addRecomendation",
             component: AddRecommendationComponent,
             children: [
               {
-                path: "sendRecommendation",
+                path:"sendRecommendation",
                 component: SendRecommendationComponent
               }
             ]
@@ -318,7 +318,6 @@ const routes = [
     EditTeamComponent,
     AddTeamComponent,
     AddWorkerComponent,
-    ChoiceWorkerComponent,
 
   ],
   imports: [
