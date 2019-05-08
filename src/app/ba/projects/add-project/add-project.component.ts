@@ -18,11 +18,11 @@ export class AddProjectComponent implements OnInit {
   
   users: User[];
 
-  // managers: Manager[];
+  managers: Manager[];
 
   orders: Order[];
 
-  // name: String;
+  name: String;
 
   projectForm: FormGroup;
 
@@ -57,14 +57,14 @@ export class AddProjectComponent implements OnInit {
       this.users = data;
     })
 
-    // this.managers=
-    // [
-    //   {name:"1", id:"1"},
-    //   {name:"2", id:"2"},
-    //   {name:"3", id:"3"}
-    // ];
-    // console.log(this.managers);
-    // this.name="";
+    this.managers=
+    [
+      {name:"1", id:"1"},
+      {name:"2", id:"2"},
+      {name:"3", id:"3"}
+    ];
+    console.log(this.managers);
+    this.name="";
   }
 
 }

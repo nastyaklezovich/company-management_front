@@ -14,13 +14,13 @@ export class OrderService {
   acceptOrder(id){
     return this
     .http
-    .put(`${this.uri}/orders`, 'accepted');
+    .patch(`${this.uri}/order/${id}`, true);
   }
 
   rejectOrder(id){
     return this
     .http
-    .put(`${this.uri}/orders`, 'rejected');
+    .patch(`${this.uri}/order/${id}`, false);
   }
   
   // deleteOrder(id) {
@@ -32,7 +32,7 @@ export class OrderService {
   getOrder() {
     return this
       .http
-      .get(`${this.uri}/orders`);
+      .get(`${this.uri}/users/search/status/${false}`);
   };
 
   // editOrder(id) {
@@ -57,8 +57,8 @@ export class OrderService {
     const obj = {
       company_name: company_name,
       email: email,
-      number: number,
-      order: order
+      phone_number: number,
+      order_description: order
     };
 
     console.log(obj);

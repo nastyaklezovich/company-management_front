@@ -25,6 +25,7 @@ export class UsersEditComponent implements OnInit {
     this.usForm = this.fb.group({
       full_name: ['', Validators.required],
       role: ['', Validators.required],
+      phone_number: ['', Validators.required],
       email: ['', Validators.required],
       position: ['', Validators.required],
       dob: ['', Validators.required]
@@ -32,6 +33,7 @@ export class UsersEditComponent implements OnInit {
   }
 
   updateOrder(full_name, role, email, phone_number,position, dob) {
+    console.log("Ola"+full_name, role, email, phone_number,position, dob);
     this.route.params.subscribe(params => {
       this.us.updateUser(full_name, role, email,phone_number, position, dob, params['id']);
       // this.router.navigate(['table']);

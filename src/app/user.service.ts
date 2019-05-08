@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 
 export class UserService {
 
-  uri = 'https:/';
+  uri = 'https://localhost:80';
 
   constructor(private http: HttpClient) { }
 
@@ -17,11 +17,18 @@ export class UserService {
       .delete(`${this.uri}/user/${id}`);
   }
 
+  approveRequest(id){
+    return this.http.patch(`${this.uri}/user/${id}`,"true");
+  }
+  nonApprovedRequest(id){
+    return this.http.patch(`${this.uri}/user/${id}`,"false");
+  }
+
   addUser(full_name, email, number, position, dob) {
     const obj = {
       full_name: full_name,
       email: email,
-      number: number,
+      phone_number: number,
       position: position,
       dob: dob
     }
@@ -34,20 +41,27 @@ export class UserService {
   getUser() {
     return this
       .http
-      .get(`${this.uri}/users`);
+    .get(`${this.uri}/users/search/resolve/${"true"}`);
   };
 
   getManager() {
     return this
       .http
-      .post(`${this.uri}/users`, "manager");
+      .get(`${this.uri}/users/search/position/${"manager"}`);
   };
 
   getWorker() {
     return this
       .http
-      .post(`${this.uri}/users`, "worker")
+      .get(`${this.uri}/users/search/position/${"worker"}`)
   }
+
+  getNotResolve() {
+    return this
+    .http
+    .get(`${this.uri}/users/search/resolve/${"false"}`);
+  }
+
   editUser(id) {
     return this.http.get(`${this.uri}/user/${id}`);
   }
@@ -67,6 +81,7 @@ export class UserService {
       .put(`${this.uri}/user/${id}`, obj)
       .subscribe(res => console.log('Done'));
   }
+
 
 
 }
