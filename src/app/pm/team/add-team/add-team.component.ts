@@ -39,16 +39,16 @@ export class AddTeamComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.ps.getProjects().subscribe((data: Project[]) => {
-    //   console.log(data);
-    //   this.projects = data;
-    // });
+    this.ps.getProjects().subscribe((data: Project[]) => {
+      console.log(data);
+      this.projects = data;
+    });
 
     // this.us.getManager().subscribe((data: User[])=>{
     //   console.log(data);
     //   this.users = data;
     // })
- 
+    //
   }
 
 }

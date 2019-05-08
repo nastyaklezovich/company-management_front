@@ -9,7 +9,7 @@
       <label class="control-label" for="project_name">Название проекта</label>
       <select class="form-control" name="project_name" id="project_name" [(ngModel)]="project_name"
         [ngModelOptions]="{standalone: true}">
-        <option *ngFor="let project of projects" [value]="project.project_name">
+        <option *ngFor="let project of projects" [value]="project.id">
           {{project.project_name}}
         </option>
       </select>
@@ -56,7 +56,7 @@
 
     
     <div class="form-group">
-      <label class="control-label" for="task_description">Описание проекта</label>
+      <label class="control-label" for="task_description">Описание задания</label>
       <input formControlName="task_description" class="form-control task_description" type="text"
         #task_description />
     </div>
@@ -72,7 +72,7 @@
       <label class="control-label" for="task_worker">Исполнитель</label>
       <select class="form-control" name="task_worker" id="task_worker" [(ngModel)]="task_worker"
         [ngModelOptions]="{standalone: true}">
-        <option *ngFor="let user of users" [value]="user.full_name">
+        <option *ngFor="let user of users" [value]="user.id">
           {{user.full_name}}
         </option>
       </select>
@@ -106,7 +106,7 @@
   </form>
   <div class="form-group justify-content-center align-items-center text-center">
     <button
-      (click)="addTask(project_name, task_name.value, start_time.value, completion_time.value, task_worker, task_description.value, task_worker, task_status.value)"
+      (click)="addTask(project_name, task_name.value, start_time.value, completion_time.value, task_worker, task_description.value, task_status.value)"
       class="btn btn-primary">
       Добавить
     </button> </div>
