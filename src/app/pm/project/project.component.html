@@ -27,12 +27,13 @@
     </thead>
 
     <tbody>
-      <tr *ngFor="let project of project|filter:name|paginate: {itemsPerPage: 10, currentPage: p}; let i=index">
+      <tr *ngFor="let project of projects|filter:name|paginate: {itemsPerPage: 10, currentPage: p}; let i=index">
         <td>{{ project.project_name }}</td>
         <td>{{ project.customer_name }}</td>
         <td>{{ project.start_time }}</td>
         <td>{{ project.completion_time }}</td>
-        <td>{{ project.project_description }}</td>
+        <td>{{ project.project_descrition }}</td>
+        <td>{{ project.project_status }}</td>
         <td>{{ project.project_status }}</td>
         <!-- <td><a [routerLink]="['/ba/projects/editProject', project.id]" class="btn"><span
               class="fa fa-pencil-square-o fa-2x"></span></a>

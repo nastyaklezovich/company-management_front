@@ -20,12 +20,11 @@
     </thead>
 
     <tbody>
-      <tr *ngFor="let project of project">
+      <tr *ngFor="let project of projects">
         <td>{{ project.project_name }}</td>
         <td>{{ project.start_time }}</td>
         <td>{{ project.completion_time }}</td>
-        <td>{{ project.project_description }}</td>
-        <td>{{ project.project_status }}</td>
+        <td>{{ project.project_descrition }}</td>
 
       </tr>
     </tbody>

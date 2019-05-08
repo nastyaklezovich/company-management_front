@@ -23,7 +23,7 @@ export class AddWorkerComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.ts.getMembers("").subscribe((data: User[])=>{
+    this.ts.getMembers(id).subscribe((data: User[])=>{
       console.log(data);
       this.users = data;
     })

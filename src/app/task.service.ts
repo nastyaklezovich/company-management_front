@@ -72,16 +72,15 @@ export class TaskService {
 
   addTask(project_name, task_name, start_time, completion_time, task_worker, task_description, task_status) {
     const obj = {
-      project_id: project_name,
+      project_name: project_name,
       task_name: task_name,
       start_time: start_time,
       completion_time: completion_time,
-      id_worker: task_worker,
+      task_worker: task_worker,
       task_description: task_description,
       task_status: task_status
     };
 
-    console.log("addTask "+ obj);
     console.log(obj);
 
     this.http.post(`${this.uri}/task`, obj)

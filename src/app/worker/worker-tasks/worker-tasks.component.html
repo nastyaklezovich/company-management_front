@@ -21,11 +21,11 @@
     </thead>
 
     <tbody>
-      <tr *ngFor="let task of task">
+      <tr *ngFor="let task of tasks">
         <td>{{ task.task_name }}</td>
         <td>{{ task.start_time }}</td>
         <td>{{ task.completion_time }}</td>
-        <td>{{ task.task_description }}</td>
+        <td>{{ task.project_descrition }}</td>
         <td>{{task.task_status}}</td>
         <td><a [routerLink]="['/worker/workerTasks/editStatusTask', task.id]"><span
               class="fa fa-pencil-square-o fa-2x"></span></a></td>
