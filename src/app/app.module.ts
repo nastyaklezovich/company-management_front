@@ -106,7 +106,7 @@ const routes = [
           {
             path:"pmAddWorker",
             component: AddWorkerComponent,
-            
+
           }
         ]
       },
@@ -312,7 +312,6 @@ const routes = [
     EditTeamComponent,
     AddTeamComponent,
     AddWorkerComponent,
-    ChoiceWorkerComponent,
 
   ],
   imports: [
