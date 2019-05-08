@@ -11,8 +11,7 @@ import { ActivatedRoute, Router } from '@angular/router'
 })
 export class AddWorkerComponent implements OnInit {
 
-  users: {}={};
-  res:{}={};
+  users: User[];
 
   constructor(private route: ActivatedRoute, private ts: TeamService) { }
 
@@ -25,10 +24,9 @@ export class AddWorkerComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-      this.ts.getMembers(params['id']).subscribe(res => {
+      this.ts.getMembers(params['id']).subscribe((res: User[]) => {
         console.log(res);
-        this.users = res;
-        console.log(this.users);
+        this.users=res;
       });
     });
 

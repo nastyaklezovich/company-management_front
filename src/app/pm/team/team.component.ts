@@ -9,7 +9,7 @@ import {TeamService} from '../../team.service'
 })
 export class TeamComponent implements OnInit {
 
-  team: Team[];
+  teams: Team[];
 
   constructor(private ts: TeamService) { }
 
@@ -21,6 +21,10 @@ export class TeamComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.ts.getTeam().subscribe((data: Team[])=>{
+      console.log(data);
+      this.teams = data;
+    })
   }
 
 }

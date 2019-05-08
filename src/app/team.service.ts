@@ -37,7 +37,7 @@ export class TeamService {
   getMembers(id) {
     return this
     .http
-    .get(`${this.uri}/team/${id}`);
+    .get(`${this.uri}/team/members/${id}`);
   }
 
   getTeam() {
