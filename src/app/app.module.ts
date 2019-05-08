@@ -1,5 +1,5 @@
 import { BrowserModule } from "@angular/platform-browser";
-import { NgModule } from "@angular/core";
+import { NgModule, Component } from "@angular/core";
 import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 import { OrderService } from "./order.service";
@@ -74,39 +74,45 @@ const routes = [
   {
     path: "login",
     component: LoginComponent,
-    children:[
+    children: [
       {
         path: "registration",
         component: RegistrationComponent
       }
     ]
   },
-  { 
-    path: "services", 
-    component: ServicesComponent 
+  {
+    path: "services",
+    component: ServicesComponent
   },
   {
-    path: "pm", 
+    path: "pm",
     component: PmComponent,
     // canActivate: [AuthGuard],
     // data: { roles: [RoleType.PM] },
-    children:[
+    children: [
       {
-        path:"pmTeam",
+        path: "pmTeam",
         component: TeamComponent,
-        children:[
+        children: [
           {
-            path:"pmEditTeam",
+            path: "pmEditTeam",
             component: EditTeamComponent,
           },
           {
-            path:"pmAddTeam",
+            path: "pmAddTeam",
             component: AddTeamComponent,
+
           },
           {
-            path:"pmAddWorker",
+            path: "pmAddWorker",
             component: AddWorkerComponent,
-            
+            children: [{
+              path: "pmChoiceMember",
+              component: ChoiceWorkerComponent,
+            },
+            ]
+
           }
         ]
       },
@@ -312,7 +318,6 @@ const routes = [
     EditTeamComponent,
     AddTeamComponent,
     AddWorkerComponent,
-    ChoiceWorkerComponent,
 
   ],
   imports: [
