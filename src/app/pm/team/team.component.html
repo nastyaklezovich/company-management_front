@@ -20,7 +20,6 @@
       <tr>
         <th>Название команды</th>
         <th>Название проекта</th>
-        <th>Члены команды</th>
         <th>Подробнее</th>
         <th>Редактировать</th>
         <th>Удалить</th>
@@ -31,13 +30,12 @@
       <tr *ngFor="let team of teams">
         <td>{{ team.team_name }}</td>
         <td>{{ team.project_name }}</td>
-        <td>жопа</td>
-        <td><a [routerLink]="[ '/pm/team/pmEditTeam', team.id ]"><span
+        <td><a [routerLink]="[ '/pm/pmTeam/pmAddWorker', team.id ]"><span
           class="fa fa-pencil-square-o fa-2x"></span></a></td>
-        <td><a [routerLink]="['/pm/team/pmEditTeam', team.id]" class="btn"><span
+        <td><a [routerLink]="['/pm/pmTeam/pmEditTeam', team.id]" class="btn"><span
               class="fa fa-pencil-square-o fa-2x"></span></a>
         </td>
-        <td><a (click)="deleteteam(team.id)"><span class="fa fa-trash-o fa-2x"></span></a></td>
+        <td><a (click)="deleteTeam(team.id)"><span class="fa fa-trash-o fa-2x"></span></a></td>
       </tr>
     </tbody>
   </table>

@@ -81,8 +81,8 @@
         <label class="control-label" for="task_worker">Исполнитель</label>
         <select class="form-control" name="task_worker" id="task_worker" [(ngModel)]="task_worker"
           [value]="res.task_worker" [ngModelOptions]="{standalone: true}">
-          <option *ngFor="let user of users" [value]="user.name">
-            {{user.name}}
+          <option *ngFor="let user of users" [value]="user.id">
+            {{user.full_name}}
           </option>
         </select>
       </div>

@@ -51,6 +51,10 @@ export class EditTeamComponent implements OnInit {
       console.log(data);
       this.team = data;
     });
+    this.ps.getProjects().subscribe((data: Project[])=>{
+      console.log(data);
+      this.projects = data;
+    })
   }
 
 }

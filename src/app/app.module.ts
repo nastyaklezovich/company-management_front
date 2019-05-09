@@ -95,7 +95,7 @@ const routes = [
         component: TeamComponent,
         children: [
           {
-            path: "pmEditTeam",
+            path: "pmEditTeam/:id",
             component: EditTeamComponent,
           },
           {
@@ -104,7 +104,7 @@ const routes = [
 
           },
           {
-            path: "pmAddWorker",
+            path: "pmAddWorker/:id",
             component: AddWorkerComponent,
           }
         ]
@@ -120,6 +120,10 @@ const routes = [
           {
             path:"addTask",
             component: AddTaskComponent,
+          },
+          {
+            path: "pmEditTask/:id",
+            component: EditTaskComponent
           }
         ]
       },
