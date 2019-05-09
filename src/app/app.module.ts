@@ -143,7 +143,7 @@ const routes = [
             component: AddRecommendationComponent,
             children: [
               {
-                path:"sendRecommendation",
+                path:"sendRecommendation/:id",
                 component: SendRecommendationComponent
               }
             ]
@@ -253,7 +253,7 @@ const routes = [
           children:
             [
               {
-                path: "editStatusTask",
+                path: "editStatusTask/:id",
                 component: EditTaskStatusComponent,
               }
             ]

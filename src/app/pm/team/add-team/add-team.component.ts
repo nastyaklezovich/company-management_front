@@ -18,6 +18,8 @@ export class AddTeamComponent implements OnInit {
 
   projects: Project[];
 
+  // users: User[];
+
   teamForm: FormGroup;
 
   constructor(private us: UserService, private fb: FormBuilder, private ps: ProjectService, private ts: TeamService) {
@@ -39,10 +41,10 @@ export class AddTeamComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.ps.getProjects().subscribe((data: Project[]) => {
-    //   console.log(data);
-    //   this.projects = data;
-    // });
+    this.ps.getProjects().subscribe((data: Project[]) => {
+      console.log(data);
+      this.projects = data;
+    });
 
     // this.us.getManager().subscribe((data: User[])=>{
     //   console.log(data);

@@ -26,13 +26,13 @@ export class MessageService {
   deleteMessage(id) {
     return this
       .http
-      .delete(`${this.uri}/message/${id}`);
+      .delete(`${this.uri}/recommendation/${id}`);
   }
 
   getMessages() {
     return this
       .http
-      .get(`${this.uri}/messages`);
+      .get(`${this.uri}/recommendations`);
   };
 
 //   editProject(id) {

@@ -52,7 +52,7 @@ export class EditProjectComponent implements OnInit {
         this.res = res;
       });
     });
-    this.os.getOrder().subscribe((data: Order[]) => {
+    this.os.getOrderApprove().subscribe((data: Order[]) => {
       console.log(data);
       this.orders = data;
     });

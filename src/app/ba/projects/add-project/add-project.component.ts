@@ -16,9 +16,9 @@ import {UserService} from '../../../user.service'
 })
 export class AddProjectComponent implements OnInit {
   
-  users: User[];
+  // users: User[];
 
-  managers: Manager[];
+  managers: User[];
 
   orders: Order[];
 
@@ -47,22 +47,16 @@ export class AddProjectComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.os.getOrder().subscribe((data: Order[]) => {
+    this.os.getOrderApprove().subscribe((data: Order[]) => {
       console.log(data);
       this.orders = data;
     });
 
     this.us.getManager().subscribe((data: User[])=>{
       console.log(data);
-      this.users = data;
+      this.managers = data;
     })
 
-    this.managers=
-    [
-      {name:"1", id:"1"},
-      {name:"2", id:"2"},
-      {name:"3", id:"3"}
-    ];
     console.log(this.managers);
     this.name="";
   }

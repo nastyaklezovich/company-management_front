@@ -20,7 +20,7 @@
 
     <div class="form-group">
       <label class="control-label" for="addressee_name">Кому:</label>
-      <input formControlName="addressee_name" class="form-control addressee_name" type="text" #addressee_name [(ngModel)]="res.full_name " [value]="res.full_name ">
+      <input formControlName="addressee_name" class="form-control addressee_name" type="text" #addressee_name [(ngModel)]="res.full_name " [value]="res.id ">
     </div>
     <div
       *ngIf="recomForm.controls['addressee_name'].invalid && (recomForm.controls['addressee_name'].dirty || recomForm.controls['addressee_name'].touched)"
@@ -49,7 +49,7 @@
 
   <div class="form-group justify-content-center align-items-center text-center">
     <button
-      (click)="updateProject(recommendation_name.value, addressee_name, start_time.value, completion_time.value, project_manager, recommendation_description.value, project_status.value)"
+      (click)="sendRecommendation(recommendation_name.value, addressee_name.value, recommendation_description.value)"
       class="btn btn-primary">
       Отправить
     </button> </div>

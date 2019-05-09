@@ -61,8 +61,8 @@
       <label class="control-label" for="project_manager">Менеджер</label>
       <select class="form-control" name="project_manager" id="project_manager" [(ngModel)]="project_manager"
         [ngModelOptions]="{standalone: true}">
-        <option *ngFor="let managers of managers" [value]="managers">
-          {{managers}}
+        <option *ngFor="let managers of managers" [value]="managers.id">
+          {{managers.full_name}}
         </option>
       </select>
     </div>
