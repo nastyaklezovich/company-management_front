@@ -35,6 +35,12 @@ export class OrderService {
       .get(`${this.uri}/users/search/status/${false}`);
   };
 
+  getOrderApprove() {
+    return this
+    .http
+    .get(`${this.uri}/users/search/status/${true}`);
+  }
+
   // editOrder(id) {
   //   return this.http.get(`${this.uri}/order/${id}`);
   // }
@@ -70,4 +76,5 @@ export class OrderService {
 
     console.log(obj);
   }
+
 }

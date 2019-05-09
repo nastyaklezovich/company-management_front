@@ -6,7 +6,7 @@
   <form [formGroup]="teamForm" role="form" class="form-group" novalidate>
 
     <div class="form-group">
-      <label class="control-label" for="team_name">Название проекта</label>
+      <label class="control-label" for="team_name">Название команды</label>
       <input formControlName="team_name" class="form-control team_name" type="text" #team_name [(ngModel)]="res.team_name" [value]="res.team_name">
     </div>
     <div
@@ -16,6 +16,25 @@
         Заполните данное поле!
       </div>
     </div>
+
+    <div class="form-group">
+      <label class="control-label" for="project_name">Проект</label>
+      <select class="form-control" name="project_name" id="project_name" [(ngModel)]="project_name"
+              [ngModelOptions]="{standalone: true}">
+        <option *ngFor="let project of projects" [value]="project.id">
+          {{project.project_name}}
+        </option>
+      </select>
+      selected value is {{project_name}}
+    </div>
+    <div
+        *ngIf="teamForm.controls['project_name'].invalid && (teamForm.controls['project_name'].dirty || teamForm.controls['project_name'].touched)"
+        class="alert alert-danger">
+      <div *ngIf="teamForm.controls['project_name'].errors.required">
+        Заполните данное поле!
+      </div>
+    </div>
+
   </form>
 
   <div class="form-group justify-content-center align-items-center text-center">

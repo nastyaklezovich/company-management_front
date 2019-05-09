@@ -5,6 +5,8 @@ import { ActivatedRoute, Router } from '@angular/router'
 import Manager from '../../../Manager'
 import { OrderService } from 'src/app/order.service';
 import Order from '../../../Order';
+import User from "../../../User";
+import {UserService} from "../../../user.service";
 
 @Component({
   selector: 'app-edit-project',
@@ -12,13 +14,13 @@ import Order from '../../../Order';
   styleUrls: ['./edit-project.component.css']
 })
 export class EditProjectComponent implements OnInit {
-  managers: Manager[];
+  managers: User[];
   orders: Order[];
   project: {} = {};
   res: {} = {};
   projectForm: FormGroup;
 
-  constructor(private os: OrderService, private route: ActivatedRoute, private ps: ProjectService, private fb: FormBuilder) {
+  constructor(private us: UserService, private os: OrderService, private route: ActivatedRoute, private ps: ProjectService, private fb: FormBuilder) {
     this.createForm();
   }
 
@@ -52,16 +54,14 @@ export class EditProjectComponent implements OnInit {
         this.res = res;
       });
     });
-    this.os.getOrder().subscribe((data: Order[]) => {
+    this.os.getOrderApprove().subscribe((data: Order[]) => {
       console.log(data);
       this.orders = data;
     });
-    this.managers=
-    [
-      {name:"1", id:"1"},
-      {name:"2", id:"2"},
-      {name:"3", id:"3"}
-    ];
+    this.us.getManager().subscribe((data: User[])=>{
+      console.log(data);
+      this.managers = data;
+    })
   }
 
 }

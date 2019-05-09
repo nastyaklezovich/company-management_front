@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import User from "../../../User";
+import {UserService} from "../../../user.service";
 
 @Component({
   selector: 'app-add-recommendation',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddRecommendationComponent implements OnInit {
 
-  constructor() { }
+  users: User[];
+  constructor(private us: UserService) { }
 
-  ngOnInit() {
+  ngOnInit() {this.us.getUser().subscribe((data: User[]) => {
+    console.log(data);
+    this.users = data;
+  });
   }
 
 }

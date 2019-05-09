@@ -33,7 +33,7 @@ export class SendRecommendationComponent implements OnInit {
     )
   }
 
-  sendRecom(recommendation_name, addressee_name, recommendation_description) {
+  sendRecommendation(recommendation_name, addressee_name, recommendation_description) {
     this.route.params.subscribe(params => {
       this.rs.addRecom(recommendation_name, addressee_name, recommendation_description);
       // this.router.navigate(['table']);

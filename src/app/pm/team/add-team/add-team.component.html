@@ -21,7 +21,7 @@
       <label class="control-label" for="project_name">Проект</label>
       <select class="form-control" name="project_name" id="project_name" [(ngModel)]="project_name"
         [ngModelOptions]="{standalone: true}">
-        <option *ngFor="let project of projects" [value]="project.project_name">
+        <option *ngFor="let project of projects" [value]="project.id">
           {{project.project_name}}
         </option>
       </select>
