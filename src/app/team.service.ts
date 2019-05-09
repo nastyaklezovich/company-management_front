@@ -11,6 +11,21 @@ export class TeamService {
 
   constructor(private http: HttpClient) { }
 
+  addWorker(worker_name){
+    const obj={
+      worker_name: worker_name
+    }
+    console.log(obj);
+    this.http.post(`${this.uri}/team/worker`, obj)
+      .subscribe(res => { console.log('Done'); });
+  }
+
+  getWorker(id){
+    return this
+    .http
+    .get(`${this.uri}/team/worker/${id}`);
+  }
+
   deleteMember(id) {
     return this
       .http
