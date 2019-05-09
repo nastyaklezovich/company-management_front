@@ -64,7 +64,6 @@ import { RegistrationComponent } from './login/registration/registration.compone
 import { EditTeamComponent } from './pm/team/edit-team/edit-team.component';
 import { AddTeamComponent } from './pm/team/add-team/add-team.component';
 import { AddWorkerComponent } from './pm/team/add-worker/add-worker.component';
-import { ChoiceWorkerComponent } from './pm/team/add-worker/choice-worker/choice-worker.component';
 
 const routes = [
   {
@@ -107,12 +106,6 @@ const routes = [
           {
             path: "pmAddWorker",
             component: AddWorkerComponent,
-            children: [{
-              path: "pmChoiceMember",
-              component: ChoiceWorkerComponent,
-            },
-            ]
-
           }
         ]
       },
@@ -318,7 +311,6 @@ const routes = [
     EditTeamComponent,
     AddTeamComponent,
     AddWorkerComponent,
-
   ],
   imports: [
     CoreModule,

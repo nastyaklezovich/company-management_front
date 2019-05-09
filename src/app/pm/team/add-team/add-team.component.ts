@@ -32,8 +32,6 @@ export class AddTeamComponent implements OnInit {
     })
   }
 
-
-
   addTeam(team_name, project_name) {
     this.ts.addTeam(team_name, project_name);
   }

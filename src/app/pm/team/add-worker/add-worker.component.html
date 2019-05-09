@@ -1,6 +1,39 @@
 <p>
   add-worker works!
 </p>
+
+<div class="container">
+  <h2 class="text-center">Добавление участника</h2>
+  <form [formGroup]="memberForm" role="form" class="form-group" novalidate>
+
+
+    <div class="form-group">
+      <label class="control-label" for="worker_name">Работники</label>
+      <select class="form-control" name="worker_name" id="worker_name" [(ngModel)]="worker_name"
+        [ngModelOptions]="{standalone: true}">
+        <option *ngFor="let worker of workers" [value]="worker.full_name">
+          {{worker.full_name}}
+        </option>
+      </select>
+      selected value is {{worker_name}}
+    </div>
+    <div
+      *ngIf="memberForm.controls['worker_name'].invalid && (memberForm.controls['worker_name'].dirty || memberForm.controls['worker_name'].touched)"
+      class="alert alert-danger">
+      <div *ngIf="memberForm.controls['worker_name'].errors.required">
+        Заполните данное поле!
+      </div>
+    </div>
+
+
+  </form>
+  <div class="form-group justify-content-center align-items-center text-center">
+    <button (click)="addMember(worker_name)" class="btn btn-primary">
+      Добавить
+    </button> 
+  </div>
+</div>
+
 <div class="container">
   <h1 class="text-center">Участники команды</h1>
 
@@ -39,8 +72,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr
-        *ngFor="let user of users">
+      <tr *ngFor="let user of users">
         <td>{{ user.full_name }}</td>
         <td>{{ user.role}}</td>
         <td>{{ user.email }}</td>
